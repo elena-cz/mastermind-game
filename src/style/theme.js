@@ -12,10 +12,10 @@ const theme = {
   purple: '#ba68c8',
 
   spacer: {
-    xs: '.5em',
-    sm: '1em',
-    md: '2em',
-    lg: '3em',
+    xs: '.25em',
+    sm: '.5em',
+    md: '1em',
+    lg: '2em',
   },
 
 };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components/macro';
 import theme from 'style/theme';
 import GlobalStyle from 'style/globalStyle';
-import { Grid, Header, Board, Sidebar, Footer } from './styled';
+import { Grid, Header, H1, NewGame, Board, Sidebar, Footer } from './styled';
 
 class App extends Component {
   render() {
@@ -10,7 +10,10 @@ class App extends Component {
       <ThemeProvider theme={theme}>
         <Grid>
           <GlobalStyle />
-          <Header />
+          <Header>
+            <H1>Mastermind</H1>
+          </Header>
+          <NewGame />
           <Board />
           <Sidebar />
           <Footer />
