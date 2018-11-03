@@ -1,6 +1,7 @@
 
 const theme = {
   fontFamily: 'Quicksand',
+  
   lightGray: '#eeeeee',
   mediumGray: '#9e9e9e',
   darkGray: '##424242',

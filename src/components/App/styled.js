@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import media from 'style/utils/media';
+import media from 'sharedStyle/utils/media';
 
 const Grid = styled.div`
   display: grid;
@@ -40,14 +40,7 @@ const Grid = styled.div`
 
 const Header = styled.header`
   grid-area: header;
-  padding: ${props => props.theme.spacer.lg};
-`;
-
-const H1 = styled.h1`
-  margin: 0;
-  font-size: 2em;
-  font-weight: 300;
-  text-transform: uppercase;
+  ${media.padding}
 `;
 
 const NewGame = styled.section`
@@ -67,5 +60,4 @@ const Footer = styled.footer`
   grid-area: footer;
 `;
 
-export { Grid, Header, H1, NewGame, Board, Sidebar, Footer };
-
+export { Grid, Header, NewGame, Board, Sidebar, Footer };

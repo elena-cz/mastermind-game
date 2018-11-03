@@ -17,4 +17,24 @@ const media = Object.keys(sizes).reduce((accumulator, label) => {
   return accumulator;
 }, {});
 
+media.padding = css`
+  padding: ${props => props.theme.spacer.lg};
+  ${media.tablet`
+    padding: ${props => props.theme.spacer.md};
+  `}
+  ${media.phone`
+    padding: ${props => props.theme.spacer.sm};
+  `}
+`;
+
+media.fontSizing = fontSize => css`
+  font-size: ${fontSize}em;
+  ${media.tablet`
+    font-size: ${fontSize * 0.8}em;
+  `}
+  ${media.phone`
+    font-size: ${fontSize * 0.6}em;
+  `}
+`;
+
 export default media;
