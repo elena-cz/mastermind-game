@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CodePeg from 'components/CodePeg';
-import { Container, RoundNum } from './styled';
+import { Container, RoundNum, GuessPegs, KeyPegs, KeyPegContainer, KeyPeg } from './styled';
 
 
 class Round extends Component {
@@ -13,18 +13,28 @@ class Round extends Component {
   }
 
   render() {
-    const { id, guessPegs, isCurrentRound } = this.props;
+    const { id, guessPegs, keyPegs, isCurrentRound } = this.props;
     return (
       <Container>
         <RoundNum>{id}</RoundNum>
-        {guessPegs.map((peg, index) => (
-          <CodePeg
-            key={index}
-            color={peg}
-            onClick={e => console.log(index, 'peg clicked')}
-            disabled={!isCurrentRound}
-          />
-        ))}
+        <GuessPegs>
+          {guessPegs.map((peg, index) => (
+            <CodePeg
+              color={peg}
+              onClick={e => console.log(index, 'peg clicked')}
+              disabled={!isCurrentRound}
+            />
+          ))}
+        </GuessPegs>
+
+        <KeyPegs>
+          {keyPegs.map((peg, index) => (
+            <KeyPegContainer index={index}>
+              <KeyPeg color={peg} />
+            </KeyPegContainer>
+          ))}
+        </KeyPegs>
+
       </Container>
     );
   }
