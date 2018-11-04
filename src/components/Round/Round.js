@@ -13,12 +13,17 @@ class Round extends Component {
   }
 
   render() {
-    const { id, guessPegs } = this.props;
+    const { id, guessPegs, isCurrentRound } = this.props;
     return (
       <Container>
         <RoundNum>{id}</RoundNum>
-        {guessPegs.map(peg => (
-          <CodePeg color={peg} />
+        {guessPegs.map((peg, index) => (
+          <CodePeg
+            key={index}
+            color={peg}
+            onClick={e => console.log(index, 'peg clicked')}
+            disabled={!isCurrentRound}
+          />
         ))}
       </Container>
     );
@@ -30,6 +35,7 @@ Round.propTypes = {
   id: PropTypes.number.isRequired,
   guessPegs: PropTypes.arrayOf(PropTypes.string).isRequired,
   keyPegs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  isCurrentRound: PropTypes.bool.isRequired,
 };
 
 export default Round;

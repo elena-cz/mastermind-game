@@ -54,8 +54,8 @@ class App extends Component {
     for (let i = 0; i < maxRounds; i++) {
       rounds[i] = {
         id: i + 1,
-        guessPegs: new Array(numPegs).fill(null),
-        keyPegs: new Array(numPegs).fill(null),
+        guessPegs: new Array(numPegs).fill(''),
+        keyPegs: new Array(numPegs).fill(''),
       };
     }
     this.setState({ rounds });
@@ -121,7 +121,7 @@ class App extends Component {
         keyPegs[index] = 'white';
         secretPegCounts[guessPeg] -= 1;
       } else {
-        keyPegs[index] = null;
+        keyPegs[index] = '';
       }
     });
 

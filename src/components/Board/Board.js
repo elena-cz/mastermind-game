@@ -10,9 +10,9 @@ function Board({ currentRoundId, rounds }) {
         <Round
           key={round.id}
           id={round.id}
-          currentRoundId={currentRoundId}
           guessPegs={round.guessPegs}
           keyPegs={round.keyPegs}
+          isCurrentRound={currentRoundId === round.id}
         />
       ))}
     </Container>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Peg } from './styled';
+import { Container, Peg } from './styled';
 
 class CodePeg extends Component {
 
@@ -11,9 +11,15 @@ class CodePeg extends Component {
   }
 
   render() {
-    const { color } = this.props;
+    const { color, onClick, disabled } = this.props;
     return (
-      <Peg color={color} />
+      <Container>
+        <Peg 
+          color={color}
+          onClick={onClick}
+          disabled={disabled}
+        />
+      </Container>
     );
   }
 
@@ -21,6 +27,8 @@ class CodePeg extends Component {
 
 CodePeg.propTypes = {
   color: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  disabled: PropTypes.bool.isRequired,
 };
 
 export default CodePeg;
