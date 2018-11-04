@@ -8,5 +8,4 @@ const H1 = styled.h1`
   ${media.fontSizing(2.5)}
 `;
 
-
 export { H1 };

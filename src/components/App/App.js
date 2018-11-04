@@ -3,9 +3,9 @@ import { ThemeProvider } from 'styled-components/macro';
 import theme from 'sharedStyle/theme';
 import GlobalStyle from 'sharedStyle/globalStyle';
 import { H1 } from 'sharedStyle/typography';
-import CodePeg from 'components/CodePeg';
+import Board from 'components/Board';
 
-import { Grid, Header, NewGame, Board, Sidebar, Footer } from './styled';
+import { Grid, Header, NewGame, Sidebar, Footer } from './styled';
 
 class App extends Component {
 
@@ -24,11 +24,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.newGame(4);
+    this.newGame(6);
     setTimeout(() => {
-      this.handleNewGuess(['red', 'red', 'red', 'red']);
-      this.handleNewGuess(['red', 'red', 'yellow', 'yellow']);
-      this.handleNewGuess(['blue', 'blue', 'green', 'green']);
+      this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue', 'purple']);
+      this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue', 'purple']);
+      this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue', 'purple']);
+      this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue', 'purple']);
+      // this.handleNewGuess(['red', 'red', 'red', 'red']);
+      // this.handleNewGuess(['red', 'red', 'yellow', 'yellow']);
+      // this.handleNewGuess(['blue', 'blue', 'green', 'green']);
       // this.handleNewGuess(this.state.secretPegs);
     }, 100);
   }
@@ -145,6 +149,7 @@ class App extends Component {
   }
 
   render() {
+    const { currentRoundId, rounds } = this.state;
     return (
       <ThemeProvider theme={theme}>
         <Grid>
@@ -153,10 +158,7 @@ class App extends Component {
             <H1>Mastermind</H1>
           </Header>
           <NewGame />
-          <Board>
-            <CodePeg />
-            <CodePeg color={theme.purple} />
-          </Board>
+          <Board currentRoundId={currentRoundId} rounds={rounds} />
           <Sidebar />
           <Footer />
         </Grid>

@@ -47,11 +47,6 @@ const NewGame = styled.section`
   grid-area: newGame;
 `;
 
-const Board = styled.main`
-  grid-area: board;
-  min-height: 20em;
-`;
-
 const Sidebar = styled.section`
   grid-area: sidebar;
 `;
@@ -60,4 +55,4 @@ const Footer = styled.footer`
   grid-area: footer;
 `;
 
-export { Grid, Header, NewGame, Board, Sidebar, Footer };
+export { Grid, Header, NewGame, Sidebar, Footer };

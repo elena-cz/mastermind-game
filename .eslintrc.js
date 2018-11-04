@@ -10,5 +10,6 @@ module.exports = {
     "rules": {
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "padded-blocks": ["error", { "classes": "always" }],
+      "react/prop-types": [1, { ignore: ["theme"]}],
     }
 };
