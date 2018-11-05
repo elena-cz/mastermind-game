@@ -4,6 +4,7 @@ import theme from 'sharedStyle/theme';
 import GlobalStyle from 'sharedStyle/globalStyle';
 import { H1 } from 'sharedStyle/typography';
 import Board from 'components/Board';
+import ColorPicker from 'components/ColorPicker';
 
 import { Grid, Header, NewGame, Sidebar, Footer } from './styled';
 
@@ -159,7 +160,9 @@ class App extends Component {
           </Header>
           <NewGame />
           <Board currentRoundId={currentRoundId} rounds={rounds} />
-          <Sidebar />
+          <Sidebar>
+            <ColorPicker />
+          </Sidebar>
           <Footer />
         </Grid>
       </ThemeProvider>
