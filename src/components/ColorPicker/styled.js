@@ -22,13 +22,30 @@ const path = `M ${pathStartX} ${pathStartY} A ${pathRadius} ${pathRadius} 0 0 1 
 
 const Container = styled.div`
   position: relative;
+  display: inline-block;
+`;
+
+const ColorContainer = styled.div`
+  position: absolute;
+  bottom: ${pegRadius}px;
+  left: -${viewBoxWidth / 2 - pegRadius}px;
   height: ${viewBoxHeight}px;
   width: ${viewBoxWidth}px;
+  z-index: 100;
 `;
+
+// const Container = styled.div`
+//   position: relative;
+//   height: ${viewBoxHeight}px;
+//   width: ${viewBoxWidth}px;
+// `;
 
 const ViewBox = styled.svg.attrs({
   viewBox,
 })`
+  position: relative;
+  height: ${viewBoxHeight}px;
+  width: ${viewBoxWidth}px;
 `;
 
 const CurvePath = styled.path.attrs({
@@ -50,22 +67,32 @@ const ColorDot = styled.div`
   height: 1.25em;
   border-radius: 50%;
   background: yellow;
-  z-index: 2;
+  z-index: 200;
 `;
 
 const Peg = styled.button`
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   min-height: ${props => props.color ? '3em' : '2em'};
   min-width: ${props => props.color ? '3em' : '2em'};
   margin: 0;
   background-color: ${props => props.theme[props.color || 'mediumGray']};
   border-radius: 50%;
   border: none;
+  z-index: 0;
 `;
 
+// const Peg = styled.button`
+//   position: absolute;
+//   top: 100%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   min-height: ${props => props.color ? '3em' : '2em'};
+//   min-width: ${props => props.color ? '3em' : '2em'};
+//   margin: 0;
+//   background-color: ${props => props.theme[props.color || 'mediumGray']};
+//   border-radius: 50%;
+//   border: none;
+// `;
 
-export { Container, ViewBox, CurvePath, ColorDot, Peg };
+
+export { Container, ColorContainer, ViewBox, CurvePath, ColorDot, Peg };
 
