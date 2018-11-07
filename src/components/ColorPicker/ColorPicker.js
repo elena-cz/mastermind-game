@@ -1,28 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, ColorContainer, ViewBox, CurvePath, ColorDot, Peg } from './styled';
+import { Container, ViewBox, CurvePath, ColorDot } from './styled';
 
-function ColorPicker(props) {
+function ColorPicker({ isVisible }) {
   return (
-    <Container>
-      <ColorContainer>
-     
-        <ViewBox>
-          <CurvePath />
-        </ViewBox>
+    <Container
+      isVisible={isVisible}
+    >
+      <ViewBox>
+        <CurvePath />
+      </ViewBox>
 
-        <ColorDot distance={0} />
-        <ColorDot distance={20} />
-        <ColorDot distance={40} />
-        <ColorDot distance={60} />
-        <ColorDot distance={80} />
-        <ColorDot distance={100} />
-      </ColorContainer>
-      <Peg color="purple" />
+      <ColorDot distance={0} />
+      <ColorDot distance={20} />
+      <ColorDot distance={40} />
+      <ColorDot distance={60} />
+      <ColorDot distance={80} />
+      <ColorDot distance={100} />
     </Container>
   );
 }
 
-ColorPicker.propTypes = {};
+ColorPicker.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
+};
 
 export default ColorPicker;

@@ -161,7 +161,6 @@ class App extends Component {
           <NewGame />
           <Board currentRoundId={currentRoundId} rounds={rounds} />
           <Sidebar>
-            <ColorPicker />
           </Sidebar>
           <Footer />
         </Grid>

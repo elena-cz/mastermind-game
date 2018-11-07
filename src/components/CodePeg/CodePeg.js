@@ -1,34 +1,50 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Peg } from './styled';
+import ColorPicker from 'components/ColorPicker';
+import { Container, PegContainer, Peg } from './styled';
 
-class CodePeg extends Component {
+function CodePeg(props) {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
+  const {
+    color,
+    disabled,
+    index,
+    indexOfVisibleColorPicker,
+    showColorPicker,
+    hideColorPicker,
+  } = props;
 
-  render() {
-    const { color, onClick, disabled } = this.props;
-    return (
-      <Container>
-        <Peg 
+  const shouldShowColorPicker = !disabled && index === indexOfVisibleColorPicker;
+
+  return (
+    <Container>
+      <ColorPicker
+        isVisible={shouldShowColorPicker}
+      />
+      <PegContainer>
+        <Peg
           color={color}
-          onClick={onClick}
+          onMouseEnter={() => showColorPicker(index)}
+          onClick={() => showColorPicker(index)}
           disabled={disabled}
         />
-      </Container>
-    );
-  }
+      </PegContainer>
+    </Container>
+  );
 
 }
 
 CodePeg.propTypes = {
   color: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
+  index: PropTypes.number.isRequired,
+  indexOfVisibleColorPicker: PropTypes.number,
+  showColorPicker: PropTypes.func.isRequired,
+  hideColorPicker: PropTypes.func.isRequired,
 };
+
+CodePeg.defaultProps = {
+  indexOfVisibleColorPicker: null,
+}
 
 export default CodePeg;

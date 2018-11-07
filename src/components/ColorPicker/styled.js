@@ -2,12 +2,12 @@ import styled, { keyframes } from 'styled-components/macro';
 import media from 'sharedStyle/utils/media';
 
 
-const pegRadius = 16;
-const pathRadius = 3.5 * pegRadius;
-const strokeWidth = 2 * pegRadius;
+const pegRadius = 24;
+const pathRadius = 2 * pegRadius;
+const strokeWidth = 1.3 * pegRadius;
 const viewBoxWidth = 2 * pathRadius + strokeWidth;
 const viewBoxHeight = pathRadius + (strokeWidth / 2);
-const angleInDeg = 25;
+const angleInDeg = 20;
 const convertToRadians = angle => angle * (Math.PI / 180);
 const movePathXDistance = pathRadius - (Math.sin(convertToRadians(180 - 90 - angleInDeg)) * pathRadius);
 const movePathYDistance = Math.sin(convertToRadians(angleInDeg)) * pathRadius;
@@ -21,11 +21,7 @@ const path = `M ${pathStartX} ${pathStartY} A ${pathRadius} ${pathRadius} 0 0 1 
 
 
 const Container = styled.div`
-  position: relative;
-  display: inline-block;
-`;
-
-const ColorContainer = styled.div`
+  visibility: ${props => props.isVisible ? 'visible' : 'hidden'};
   position: absolute;
   bottom: ${pegRadius}px;
   left: -${viewBoxWidth / 2 - pegRadius}px;
@@ -34,11 +30,9 @@ const ColorContainer = styled.div`
   z-index: 100;
 `;
 
-// const Container = styled.div`
-//   position: relative;
-//   height: ${viewBoxHeight}px;
-//   width: ${viewBoxWidth}px;
-// `;
+  // ${Peg}:hover & {
+  //   display: block;
+  // }
 
 const ViewBox = styled.svg.attrs({
   viewBox,
@@ -70,29 +64,5 @@ const ColorDot = styled.div`
   z-index: 200;
 `;
 
-const Peg = styled.button`
-  min-height: ${props => props.color ? '3em' : '2em'};
-  min-width: ${props => props.color ? '3em' : '2em'};
-  margin: 0;
-  background-color: ${props => props.theme[props.color || 'mediumGray']};
-  border-radius: 50%;
-  border: none;
-  z-index: 0;
-`;
 
-// const Peg = styled.button`
-//   position: absolute;
-//   top: 100%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   min-height: ${props => props.color ? '3em' : '2em'};
-//   min-width: ${props => props.color ? '3em' : '2em'};
-//   margin: 0;
-//   background-color: ${props => props.theme[props.color || 'mediumGray']};
-//   border-radius: 50%;
-//   border: none;
-// `;
-
-
-export { Container, ColorContainer, ViewBox, CurvePath, ColorDot, Peg };
-
+export { Container, ViewBox, CurvePath, ColorDot };

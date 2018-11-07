@@ -9,11 +9,23 @@ class Round extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      indexOfVisibleColorPicker: null,
     };
+  }
+
+  showColorPicker = (indexOfPeg) => {
+    this.setState({ indexOfVisibleColorPicker: indexOfPeg });
+  }
+
+  hideColorPicker = () => {
+    this.setState({ indexOfVisibleColorPicker: null });
   }
 
   render() {
     const { id, guessPegs, keyPegs, isCurrentRound } = this.props;
+    const { indexOfVisibleColorPicker } = this.state;
+    const { showColorPicker, hideColorPicker } = this;
+
     return (
       <Container>
         <RoundNum>{id}</RoundNum>
@@ -21,8 +33,11 @@ class Round extends Component {
           {guessPegs.map((peg, index) => (
             <CodePeg
               color={peg}
-              onClick={e => console.log(index, 'peg clicked')}
               disabled={!isCurrentRound}
+              index={index}
+              indexOfVisibleColorPicker={indexOfVisibleColorPicker}
+              showColorPicker={showColorPicker}
+              hideColorPicker={hideColorPicker}
             />
           ))}
         </GuessPegs>

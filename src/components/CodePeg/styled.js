@@ -1,6 +1,11 @@
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
+const PegContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: middle;
@@ -18,4 +23,4 @@ const Peg = styled.button`
   border: none;
 `;
 
-export { Container, Peg };
+export { Container, PegContainer, Peg };
