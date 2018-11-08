@@ -14,6 +14,11 @@ const globalStyle = createGlobalStyle`
   button, input {
     font-family: ${props => props.theme.fontFamily}, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    cursor: pointer;
+
+    &:focus {
+      outline:0;
+    }
   }
 `;
 

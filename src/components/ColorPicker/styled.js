@@ -3,8 +3,8 @@ import media from 'sharedStyle/utils/media';
 
 
 const pegRadius = 24;
-const pathRadius = 2 * pegRadius;
-const strokeWidth = 1.3 * pegRadius;
+const pathRadius = 1.75 * pegRadius;
+const strokeWidth = 1.2 * pegRadius;
 const viewBoxWidth = 2 * pathRadius + strokeWidth;
 const viewBoxHeight = pathRadius + (strokeWidth / 2);
 const angleInDeg = 20;
@@ -40,7 +40,7 @@ const ViewBox = styled.svg.attrs({
   position: relative;
   height: ${viewBoxHeight}px;
   width: ${viewBoxWidth}px;
-  filter: drop-shadow(1px 2px 4px ${props => props.theme.mediumGray});
+  filter: drop-shadow(1px 2px 4px #bdbdbd);
 `;
 
 const CurvePath = styled.path.attrs({
@@ -67,6 +67,10 @@ const ColorDot = styled.button`
 
   &:hover {
     transform: scale(1.3);
+  }
+  &:focus {
+    transform: scale(1.3);
+    outline:0;
   }
 `;
 

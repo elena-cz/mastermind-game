@@ -12,6 +12,9 @@ const OutlineButton = styled.button`
   &:hover {
     background-color: ${props => props.theme.lightPrimaryColor};
   }
+  &:focus {
+    background-color: ${props => props.theme.lightPrimaryColor};
+  }
 `;
 
 export { OutlineButton };

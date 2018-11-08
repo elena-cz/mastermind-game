@@ -118,7 +118,7 @@ class App extends Component {
         return;
       }
       if (secretPegCounts[guessPeg]) {
-        keyPegs[index] = 'white';
+        keyPegs[index] = 'primaryColor';
         secretPegCounts[guessPeg] -= 1;
       } else {
         keyPegs[index] = '';

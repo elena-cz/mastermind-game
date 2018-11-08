@@ -43,7 +43,7 @@ class Round extends Component {
         <GuessPegs>
           {guessPegs.map((color, index) => (
             <CodePeg
-              color={color || guessColors[index]}
+              color={color || guessColors[index] || ''}
               disabled={!isCurrentRound}
               index={index}
               indexOfVisibleColorPicker={indexOfVisibleColorPicker}

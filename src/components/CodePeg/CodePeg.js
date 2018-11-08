@@ -30,6 +30,7 @@ function CodePeg(props) {
         <Peg
           color={color}
           onMouseEnter={() => showColorPicker(index)}
+          onFocus={() => showColorPicker(index)}
           onClick={() => showColorPicker(index)}
           disabled={disabled}
         />
