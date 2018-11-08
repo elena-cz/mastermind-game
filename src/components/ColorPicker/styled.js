@@ -64,6 +64,10 @@ const ColorDot = styled.button`
   border: none;
   background: ${props => props.theme[props.color]};
   z-index: 200;
+
+  &:hover {
+    transform: scale(1.3);
+  }
 `;
 
 

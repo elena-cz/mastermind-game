@@ -25,8 +25,10 @@ const GuessPegs = styled.div`
 
 const KeyPegs = styled.div`
   display: flex;
+  justify-content: center;
   flex-wrap: no-wrap;
   height: 2.5em;
+  width: 7em;
 `;
 
 const KeyPegContainer = styled.div`

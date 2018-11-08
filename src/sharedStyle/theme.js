@@ -2,6 +2,8 @@
 const theme = {
   fontFamily: 'Quicksand',
   
+  primaryColor: '#ba68c8',
+  lightPrimaryColor: '#f3e5f5',
   white: '#ffffff',
   lightGray: '#eeeeee',
   mediumGray: '#9e9e9e',

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { OutlineButton } from 'sharedStyle/buttons';
 import CodePeg from 'components/CodePeg';
 import { Container, RoundNum, GuessPegs, KeyPegs, KeyPegContainer, KeyPeg } from './styled';
 
@@ -32,7 +33,7 @@ class Round extends Component {
   }
 
   render() {
-    const { id, guessPegs, keyPegs, isCurrentRound, colors } = this.props;
+    const { id, guessPegs, keyPegs, isCurrentRound, colors, handleNewGuess } = this.props;
     const { guessColors, indexOfVisibleColorPicker } = this.state;
     const { showColorPicker, hideColorPicker, updatePegColor } = this;
 
@@ -55,11 +56,17 @@ class Round extends Component {
         </GuessPegs>
 
         <KeyPegs>
-          {keyPegs.map((peg, index) => (
-            <KeyPegContainer index={index}>
-              <KeyPeg color={peg} />
-            </KeyPegContainer>
-          ))}
+          {isCurrentRound ? (
+            <OutlineButton onClick={() => handleNewGuess(guessColors)}>
+              Submit
+            </OutlineButton>
+          ) : (
+            keyPegs.map((peg, index) => (
+              <KeyPegContainer index={index}>
+                <KeyPeg color={peg} />
+              </KeyPegContainer>
+            ))
+          )}
         </KeyPegs>
 
       </Container>
@@ -74,6 +81,7 @@ Round.propTypes = {
   keyPegs: PropTypes.arrayOf(PropTypes.string).isRequired,
   isCurrentRound: PropTypes.bool.isRequired,
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  handleNewGuess: PropTypes.func.isRequired,
 };
 
 export default Round;

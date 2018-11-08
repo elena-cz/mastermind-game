@@ -10,6 +10,11 @@ const globalStyle = createGlobalStyle`
     min-height: 100vh;
     width: 100%;
   }
+
+  button, input {
+    font-family: ${props => props.theme.fontFamily}, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  }
 `;
 
 export default globalStyle;

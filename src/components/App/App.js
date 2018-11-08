@@ -44,11 +44,11 @@ class App extends Component {
       numPegs,
       maxRounds,
     });
-    this.generateRounds(numPegs, maxRounds);
-    this.generateSecretCode(numPegs);
+    this._generateRounds(numPegs, maxRounds);
+    this._generateSecretCode(numPegs);
   }
 
-  generateRounds(numPegs, maxRounds) {
+  _generateRounds(numPegs, maxRounds) {
     const rounds = new Array(maxRounds);
 
     for (let i = 0; i < maxRounds; i++) {
@@ -61,7 +61,7 @@ class App extends Component {
     this.setState({ rounds });
   }
 
-  generateSecretCode(numPegs) {
+  _generateSecretCode(numPegs) {
     const { colors } = this.state;
     const secretPegs = new Array(numPegs);
 
@@ -72,9 +72,9 @@ class App extends Component {
     this.setState({ secretPegs });
   }
 
-  handleNewGuess(guessPegs) {
+  handleNewGuess = (guessPegs) => {
     const { currentRoundId, maxRounds, rounds } = this.state;
-    const { isCorrectGuess, keyPegs } = this.generateKeyPegs(guessPegs);
+    const { isCorrectGuess, keyPegs } = this._generateKeyPegs(guessPegs);
 
     const roundsCopy = [...rounds];
     const round = roundsCopy[currentRoundId - 1];
@@ -93,7 +93,7 @@ class App extends Component {
     }
   }
 
-  generateKeyPegs(guessPegs) {
+  _generateKeyPegs(guessPegs) {
     const { secretPegs } = this.state;
     const secretPegCounts = {};
     secretPegs.forEach((peg) => {
@@ -124,10 +124,7 @@ class App extends Component {
         keyPegs[index] = '';
       }
     });
-
-    console.log('Guess:', guessPegs);
     console.log('Code:', secretPegs);
-    console.log('Key:', keyPegs);
 
     // Shuffle keyPegs
     for (let i = 0; i < keyPegs.length - 2; i++) {
@@ -136,7 +133,6 @@ class App extends Component {
       keyPegs[i] = keyPegs[randomIndex];
       keyPegs[randomIndex] = temp;
     }
-    console.log('Key:', keyPegs);
 
     // Check if guess is correct
     const isCorrectGuess = countBlack === secretPegs.length;
@@ -150,6 +146,7 @@ class App extends Component {
 
   render() {
     const { currentRoundId, rounds, colors } = this.state;
+    const { handleNewGuess } = this;
     return (
       <ThemeProvider theme={theme}>
         <Grid>
@@ -162,6 +159,7 @@ class App extends Component {
             currentRoundId={currentRoundId}
             rounds={rounds}
             colors={colors}
+            handleNewGuess={handleNewGuess}
           />
           <Sidebar>
           </Sidebar>
