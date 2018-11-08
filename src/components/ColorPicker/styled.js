@@ -40,27 +40,29 @@ const ViewBox = styled.svg.attrs({
   position: relative;
   height: ${viewBoxHeight}px;
   width: ${viewBoxWidth}px;
+  filter: drop-shadow(1px 2px 4px ${props => props.theme.mediumGray});
 `;
 
 const CurvePath = styled.path.attrs({
   d: path,
-  stroke: 'blue',
+  stroke: 'white',
   fill: 'none',
 })`
   stroke-width: ${strokeWidth};
   stroke-linecap: round;
 `;
 
-const ColorDot = styled.div`
+const ColorDot = styled.button`
   position: absolute;
   top: 0;
   left: 0;
   offset-path: path("${path}");
   offset-distance: ${props => props.distance}%;
-  width: 1.25em;
-  height: 1.25em;
+  width: 1.4em;
+  height: 1.4em;
   border-radius: 50%;
-  background: yellow;
+  border: none;
+  background: ${props => props.theme[props.color]};
   z-index: 200;
 `;
 

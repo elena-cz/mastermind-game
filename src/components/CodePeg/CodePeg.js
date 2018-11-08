@@ -12,6 +12,8 @@ function CodePeg(props) {
     indexOfVisibleColorPicker,
     showColorPicker,
     hideColorPicker,
+    updatePegColor,
+    colors,
   } = props;
 
   const shouldShowColorPicker = !disabled && index === indexOfVisibleColorPicker;
@@ -20,6 +22,9 @@ function CodePeg(props) {
     <Container>
       <ColorPicker
         isVisible={shouldShowColorPicker}
+        colors={colors}
+        updatePegColor={updatePegColor}
+        pegIndex={index}
       />
       <PegContainer>
         <Peg
@@ -41,10 +46,12 @@ CodePeg.propTypes = {
   indexOfVisibleColorPicker: PropTypes.number,
   showColorPicker: PropTypes.func.isRequired,
   hideColorPicker: PropTypes.func.isRequired,
+  updatePegColor: PropTypes.func.isRequired,
+  colors: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 CodePeg.defaultProps = {
   indexOfVisibleColorPicker: null,
-}
+};
 
 export default CodePeg;

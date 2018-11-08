@@ -4,7 +4,6 @@ import theme from 'sharedStyle/theme';
 import GlobalStyle from 'sharedStyle/globalStyle';
 import { H1 } from 'sharedStyle/typography';
 import Board from 'components/Board';
-import ColorPicker from 'components/ColorPicker';
 
 import { Grid, Header, NewGame, Sidebar, Footer } from './styled';
 
@@ -150,7 +149,7 @@ class App extends Component {
   }
 
   render() {
-    const { currentRoundId, rounds } = this.state;
+    const { currentRoundId, rounds, colors } = this.state;
     return (
       <ThemeProvider theme={theme}>
         <Grid>
@@ -159,7 +158,11 @@ class App extends Component {
             <H1>Mastermind</H1>
           </Header>
           <NewGame />
-          <Board currentRoundId={currentRoundId} rounds={rounds} />
+          <Board
+            currentRoundId={currentRoundId}
+            rounds={rounds}
+            colors={colors}
+          />
           <Sidebar>
           </Sidebar>
           <Footer />

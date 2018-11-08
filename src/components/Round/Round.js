@@ -9,6 +9,7 @@ class Round extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      guessColors: [],
       indexOfVisibleColorPicker: null,
     };
   }
@@ -21,23 +22,34 @@ class Round extends Component {
     this.setState({ indexOfVisibleColorPicker: null });
   }
 
+  updatePegColor = (color, index) => {
+    console.log('change color', color, index);
+    this.setState((state) => {
+      const guessColors = [...state.guessColors];
+      guessColors[index] = color;
+      return { guessColors };
+    });
+  }
+
   render() {
-    const { id, guessPegs, keyPegs, isCurrentRound } = this.props;
-    const { indexOfVisibleColorPicker } = this.state;
-    const { showColorPicker, hideColorPicker } = this;
+    const { id, guessPegs, keyPegs, isCurrentRound, colors } = this.props;
+    const { guessColors, indexOfVisibleColorPicker } = this.state;
+    const { showColorPicker, hideColorPicker, updatePegColor } = this;
 
     return (
       <Container>
         <RoundNum>{id}</RoundNum>
         <GuessPegs>
-          {guessPegs.map((peg, index) => (
+          {guessPegs.map((color, index) => (
             <CodePeg
-              color={peg}
+              color={color || guessColors[index]}
               disabled={!isCurrentRound}
               index={index}
               indexOfVisibleColorPicker={indexOfVisibleColorPicker}
               showColorPicker={showColorPicker}
               hideColorPicker={hideColorPicker}
+              updatePegColor={updatePegColor}
+              colors={colors}
             />
           ))}
         </GuessPegs>
@@ -61,6 +73,7 @@ Round.propTypes = {
   guessPegs: PropTypes.arrayOf(PropTypes.string).isRequired,
   keyPegs: PropTypes.arrayOf(PropTypes.string).isRequired,
   isCurrentRound: PropTypes.bool.isRequired,
+  colors: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Round;
