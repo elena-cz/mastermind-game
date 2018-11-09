@@ -9,15 +9,15 @@ const PegContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: ${props => props.pegWidthEm}em;
-  min-width: ${props => props.pegWidthEm}em;
+  min-height: ${props => props.pegWidth}px;
+  min-width: ${props => props.pegWidth}px;
   margin: 0 ${props => props.theme.spacers.lg} 0 0;
 `;
 
 const Peg = styled.button`
   background-color: ${props => props.theme.colors[props.color || 'mediumGray']};
-  min-height: ${props => props.color ? props.pegWidthEm : props.pegWidthEm * 0.6}em;
-  min-width: ${props => props.color ? props.pegWidthEm : props.pegWidthEm * 0.6}em;
+  min-height: ${props => props.color ? props.pegWidth : props.pegWidth / 2}px;
+  min-width: ${props => props.color ? props.pegWidth : props.pegWidth / 2}px;
   border-radius: 50%;
   border: none;
 `;

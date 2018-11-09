@@ -20,7 +20,7 @@ class App extends Component {
       secretPegs: [],
       userWon: false,
       userLost: false,
-      pegWidthEm: theme.pegSizesEm.desktop,
+      pegWidth: theme.pegSizes.desktop,
     };
   }
 
@@ -32,11 +32,11 @@ class App extends Component {
 
     const updatePegWidth = () => {
       if (desktopMaxWidth.matches) {
-        this.setState({ pegWidthEm: theme.pegSizesEm.desktop });
+        this.setState({ pegWidth: theme.pegSizes.desktop });
       } else if (tabletMaxWidth.matches) {
-        this.setState({ pegWidthEm: theme.pegSizesEm.tablet });
+        this.setState({ pegWidth: theme.pegSizes.tablet });
       } else {
-        this.setState({ pegWidthEm: theme.pegSizesEm.phone });
+        this.setState({ pegWidth: theme.pegSizes.phone });
       }
     };
 
@@ -164,7 +164,7 @@ class App extends Component {
   }
 
   render() {
-    const { currentRoundId, rounds, colors, pegWidthEm } = this.state;
+    const { currentRoundId, rounds, colors, pegWidth } = this.state;
     const { handleNewGuess } = this;
     return (
       <ThemeProvider theme={theme}>
@@ -179,7 +179,7 @@ class App extends Component {
             rounds={rounds}
             colors={colors}
             handleNewGuess={handleNewGuess}
-            pegWidthEm={pegWidthEm}
+            pegWidth={pegWidth}
           />
           <Sidebar>
           </Sidebar>

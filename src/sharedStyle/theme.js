@@ -37,10 +37,10 @@ theme.mediaSizes = {
   phone: 576,
 };
 
-theme.pegSizesEm = {
-  desktop: 3,
-  tablet: 2.4,
-  phone: 1.8,
+theme.pegSizes = {
+  desktop: 48,
+  tablet: 36,
+  phone: 30,
 };
 
 

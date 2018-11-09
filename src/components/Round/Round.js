@@ -33,7 +33,7 @@ class Round extends Component {
   }
 
   render() {
-    const { id, guessPegs, keyPegs, isCurrentRound, colors, handleNewGuess, pegWidthEm } = this.props;
+    const { id, guessPegs, keyPegs, isCurrentRound, colors, handleNewGuess, pegWidth } = this.props;
     const { guessColors, indexOfVisibleColorPicker } = this.state;
     const { showColorPicker, hideColorPicker, updatePegColor } = this;
 
@@ -51,12 +51,12 @@ class Round extends Component {
               hideColorPicker={hideColorPicker}
               updatePegColor={updatePegColor}
               colors={colors}
-              pegWidthEm={pegWidthEm}
+              pegWidth={pegWidth}
             />
           ))}
         </GuessPegs>
 
-        <KeyPegs pegWidthEm={pegWidthEm}>
+        <KeyPegs pegWidth={pegWidth}>
           {isCurrentRound ? (
             <OutlineButton onClick={() => handleNewGuess(guessColors)}>
               Submit
@@ -65,11 +65,11 @@ class Round extends Component {
             keyPegs.map((peg, index) => (
               <KeyPegContainer
                 index={index}
-                pegWidthEm={pegWidthEm}
+                pegWidth={pegWidth}
               >
                 <KeyPeg
                   color={peg}
-                  pegWidthEm={pegWidthEm}
+                  pegWidth={pegWidth}
                 />
               </KeyPegContainer>
             ))
@@ -89,7 +89,7 @@ Round.propTypes = {
   isCurrentRound: PropTypes.bool.isRequired,
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleNewGuess: PropTypes.func.isRequired,
-  pegWidthEm: PropTypes.number.isRequired,
+  pegWidth: PropTypes.number.isRequired,
 };
 
 export default Round;

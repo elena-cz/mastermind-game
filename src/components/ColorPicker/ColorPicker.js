@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, ViewBox, CurvePath, ColorDot } from './styled';
 
-function ColorPicker({ isVisible, colors, updatePegColor, pegIndex, pegWidthEm }) {
+function ColorPicker({ isVisible, colors, updatePegColor, pegIndex, pegWidth }) {
 
-  const pegRadius = pegWidthEm / 2 * 16;
+  const pegRadius = pegWidth / 2;
   const pathRadius = 1.75 * pegRadius;
   const strokeWidth = 1.2 * pegRadius;
-  const colorDotWidthEm = Math.round(pegWidthEm / 2.1 * 10) / 10;
+  const colorDotWidth = pegWidth / 2;
 
   const viewBoxWidth = 2 * pathRadius + strokeWidth;
   const viewBoxHeight = pathRadius + (strokeWidth / 2);
@@ -48,7 +48,7 @@ function ColorPicker({ isVisible, colors, updatePegColor, pegIndex, pegWidthEm }
           color={color}
           distance={index * 20}
           path={path}
-          colorDotWidthEm={colorDotWidthEm}
+          colorDotWidth={colorDotWidth}
           onClick={() => updatePegColor(color, pegIndex)}
         />
       ))}
@@ -61,7 +61,7 @@ ColorPicker.propTypes = {
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
   updatePegColor: PropTypes.func.isRequired,
   pegIndex: PropTypes.number.isRequired,
-  pegWidthEm: PropTypes.number.isRequired,
+  pegWidth: PropTypes.number.isRequired,
 };
 
 export default ColorPicker;

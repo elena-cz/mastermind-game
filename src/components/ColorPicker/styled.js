@@ -55,8 +55,8 @@ const ColorDot = styled.button`
   left: 0;
   offset-path: path("${props => props.path}");
   offset-distance: ${props => props.distance}%;
-  width: ${props => props.colorDotWidthEm}em;
-  height: ${props => props.colorDotWidthEm}em;
+  width: ${props => props.colorDotWidth}px;
+  height: ${props => props.colorDotWidth}px;
   border-radius: 50%;
   border: none;
   background: ${props => props.theme.colors[props.color]};
