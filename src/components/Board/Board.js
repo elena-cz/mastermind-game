@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Round from 'components/Round';
 import { Container } from './styled';
 
-function Board({ currentRoundId, rounds, colors, handleNewGuess }) {
+function Board({ currentRoundId, rounds, colors, handleNewGuess, pegWidthEm }) {
   return (
     <Container>
       {rounds.map(round => (
@@ -15,6 +15,7 @@ function Board({ currentRoundId, rounds, colors, handleNewGuess }) {
           isCurrentRound={currentRoundId === round.id}
           colors={colors}
           handleNewGuess={handleNewGuess}
+          pegWidthEm={pegWidthEm}
         />
       ))}
     </Container>
@@ -30,6 +31,7 @@ Board.propTypes = {
   })).isRequired,
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleNewGuess: PropTypes.func.isRequired,
+  pegWidthEm: PropTypes.number.isRequired,
 };
 
 

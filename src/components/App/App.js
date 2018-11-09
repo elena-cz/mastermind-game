@@ -20,15 +20,34 @@ class App extends Component {
       secretPegs: [],
       userWon: false,
       userLost: false,
+      pegWidthEm: theme.pegSizesEm.desktop,
     };
   }
 
   componentDidMount() {
+
+    const desktopMaxWidth = window.matchMedia(`(min-width: ${theme.mediaSizes.desktop}px)`);
+    const tabletMaxWidth = window.matchMedia(`(min-width: ${theme.mediaSizes.tablet}px)`);
+    const phoneMaxWidth = window.matchMedia(`(min-width: ${theme.mediaSizes.phone}px)`);
+
+    const updatePegWidth = () => {
+      if (desktopMaxWidth.matches) {
+        this.setState({ pegWidthEm: theme.pegSizesEm.desktop });
+      } else if (tabletMaxWidth.matches) {
+        this.setState({ pegWidthEm: theme.pegSizesEm.tablet });
+      } else {
+        this.setState({ pegWidthEm: theme.pegSizesEm.phone });
+      }
+    };
+
+    updatePegWidth();
+
+    desktopMaxWidth.addListener(updatePegWidth);
+    tabletMaxWidth.addListener(updatePegWidth);
+    phoneMaxWidth.addListener(updatePegWidth);
+
     this.newGame(6);
     setTimeout(() => {
-      this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue', 'purple']);
-      this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue', 'purple']);
-      this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue', 'purple']);
       this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue', 'purple']);
       // this.handleNewGuess(['red', 'red', 'red', 'red']);
       // this.handleNewGuess(['red', 'red', 'yellow', 'yellow']);
@@ -44,11 +63,11 @@ class App extends Component {
       numPegs,
       maxRounds,
     });
-    this._generateRounds(numPegs, maxRounds);
-    this._generateSecretCode(numPegs);
+    this.generateRounds(numPegs, maxRounds);
+    this.generateSecretCode(numPegs);
   }
 
-  _generateRounds(numPegs, maxRounds) {
+  generateRounds(numPegs, maxRounds) {
     const rounds = new Array(maxRounds);
 
     for (let i = 0; i < maxRounds; i++) {
@@ -61,7 +80,7 @@ class App extends Component {
     this.setState({ rounds });
   }
 
-  _generateSecretCode(numPegs) {
+  generateSecretCode(numPegs) {
     const { colors } = this.state;
     const secretPegs = new Array(numPegs);
 
@@ -74,7 +93,7 @@ class App extends Component {
 
   handleNewGuess = (guessPegs) => {
     const { currentRoundId, maxRounds, rounds } = this.state;
-    const { isCorrectGuess, keyPegs } = this._generateKeyPegs(guessPegs);
+    const { isCorrectGuess, keyPegs } = this.generateKeyPegs(guessPegs);
 
     const roundsCopy = [...rounds];
     const round = roundsCopy[currentRoundId - 1];
@@ -93,7 +112,7 @@ class App extends Component {
     }
   }
 
-  _generateKeyPegs(guessPegs) {
+  generateKeyPegs(guessPegs) {
     const { secretPegs } = this.state;
     const secretPegCounts = {};
     secretPegs.forEach((peg) => {
@@ -118,7 +137,7 @@ class App extends Component {
         return;
       }
       if (secretPegCounts[guessPeg]) {
-        keyPegs[index] = 'primaryColor';
+        keyPegs[index] = 'primary';
         secretPegCounts[guessPeg] -= 1;
       } else {
         keyPegs[index] = '';
@@ -145,7 +164,7 @@ class App extends Component {
   }
 
   render() {
-    const { currentRoundId, rounds, colors } = this.state;
+    const { currentRoundId, rounds, colors, pegWidthEm } = this.state;
     const { handleNewGuess } = this;
     return (
       <ThemeProvider theme={theme}>
@@ -160,6 +179,7 @@ class App extends Component {
             rounds={rounds}
             colors={colors}
             handleNewGuess={handleNewGuess}
+            pegWidthEm={pegWidthEm}
           />
           <Sidebar>
           </Sidebar>

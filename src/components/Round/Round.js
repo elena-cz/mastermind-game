@@ -10,7 +10,7 @@ class Round extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      guessColors: [],
+      guessColors: new Array(props.guessPegs.length).fill(''),
       indexOfVisibleColorPicker: null,
     };
   }
@@ -33,7 +33,7 @@ class Round extends Component {
   }
 
   render() {
-    const { id, guessPegs, keyPegs, isCurrentRound, colors, handleNewGuess } = this.props;
+    const { id, guessPegs, keyPegs, isCurrentRound, colors, handleNewGuess, pegWidthEm } = this.props;
     const { guessColors, indexOfVisibleColorPicker } = this.state;
     const { showColorPicker, hideColorPicker, updatePegColor } = this;
 
@@ -43,7 +43,7 @@ class Round extends Component {
         <GuessPegs>
           {guessPegs.map((color, index) => (
             <CodePeg
-              color={color || guessColors[index] || ''}
+              color={color || guessColors[index]}
               disabled={!isCurrentRound}
               index={index}
               indexOfVisibleColorPicker={indexOfVisibleColorPicker}
@@ -51,19 +51,26 @@ class Round extends Component {
               hideColorPicker={hideColorPicker}
               updatePegColor={updatePegColor}
               colors={colors}
+              pegWidthEm={pegWidthEm}
             />
           ))}
         </GuessPegs>
 
-        <KeyPegs>
+        <KeyPegs pegWidthEm={pegWidthEm}>
           {isCurrentRound ? (
             <OutlineButton onClick={() => handleNewGuess(guessColors)}>
               Submit
             </OutlineButton>
           ) : (
             keyPegs.map((peg, index) => (
-              <KeyPegContainer index={index}>
-                <KeyPeg color={peg} />
+              <KeyPegContainer
+                index={index}
+                pegWidthEm={pegWidthEm}
+              >
+                <KeyPeg
+                  color={peg}
+                  pegWidthEm={pegWidthEm}
+                />
               </KeyPegContainer>
             ))
           )}
@@ -82,6 +89,7 @@ Round.propTypes = {
   isCurrentRound: PropTypes.bool.isRequired,
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleNewGuess: PropTypes.func.isRequired,
+  pegWidthEm: PropTypes.number.isRequired,
 };
 
 export default Round;

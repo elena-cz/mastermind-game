@@ -9,7 +9,7 @@ const Grid = styled.div`
     "header newGame"
     "board sidebar"
     "footer footer";
-  grid-gap: ${props => props.theme.spacer.lg};
+  grid-gap: ${props => props.theme.spacers.lg};
   align-content: start;
   min-height: 100vh;
   width: 80%;
@@ -22,7 +22,7 @@ const Grid = styled.div`
       "header newGame"
       "board sidebar"
       "footer footer";
-    grid-gap: ${props => props.theme.spacer.md};
+    grid-gap: ${props => props.theme.spacers.md};
     width: 100%;
   `}
   ${media.phone`
@@ -34,7 +34,7 @@ const Grid = styled.div`
       "board"
       "sidebar"
       "footer";
-    grid-gap: ${props => props.theme.spacer.sm};
+    grid-gap: ${props => props.theme.spacers.sm};
   `}
 `;
 

@@ -14,25 +14,32 @@ function CodePeg(props) {
     hideColorPicker,
     updatePegColor,
     colors,
+    pegWidthEm,
   } = props;
 
   const shouldShowColorPicker = !disabled && index === indexOfVisibleColorPicker;
 
   return (
-    <Container>
+    <Container
+      onMouseLeave={() => hideColorPicker()}
+    >
       <ColorPicker
         isVisible={shouldShowColorPicker}
         colors={colors}
         updatePegColor={updatePegColor}
         pegIndex={index}
+        pegWidthEm={pegWidthEm}
       />
-      <PegContainer>
+      <PegContainer
+        pegWidthEm={pegWidthEm}
+      >
         <Peg
           color={color}
           onMouseEnter={() => showColorPicker(index)}
           onFocus={() => showColorPicker(index)}
           onClick={() => showColorPicker(index)}
           disabled={disabled}
+          pegWidthEm={pegWidthEm}
         />
       </PegContainer>
     </Container>
@@ -49,6 +56,7 @@ CodePeg.propTypes = {
   hideColorPicker: PropTypes.func.isRequired,
   updatePegColor: PropTypes.func.isRequired,
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  pegWidthEm: PropTypes.number.isRequired,
 };
 
 CodePeg.defaultProps = {

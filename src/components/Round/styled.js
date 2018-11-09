@@ -6,14 +6,14 @@ const Container = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: ${props => props.theme.spacer.md} 0;
+  padding: ${props => props.theme.spacers.md} 0;
 `;
 
 const RoundNum = styled.p`
   width: 2em;
   text-align: center;
-  margin: 0 ${props => props.theme.spacer.lg} 0 0;
-  color: ${props => props.theme.mediumGray};
+  margin: 0 ${props => props.theme.spacers.lg} 0 0;
+  color: ${props => props.theme.colors.mediumGray};
 `;
 
 const GuessPegs = styled.div`
@@ -26,24 +26,25 @@ const GuessPegs = styled.div`
 const KeyPegs = styled.div`
   display: flex;
   justify-content: center;
-  flex-wrap: no-wrap;
-  height: 2.5em;
+  height: ${props => props.pegWidthEm}em;
   width: 7em;
 `;
+
+const keyPegWidth = width =>  Math.round(width / 3 * 10) / 10;
 
 const KeyPegContainer = styled.div`
   align-self: ${props => props.index % 2 === 0 ? 'flex-start' : 'flex-end'};
   display: flex;
   align-items: center;
-  justify-content: middle;
-  min-width: 1em;
-  min-height: 1em;
+  justify-content: center;
+  min-width: ${props => keyPegWidth(props.pegWidthEm)}em;
+  min-height: ${props => keyPegWidth(props.pegWidthEm)}em;
 `;
 
 const KeyPeg = styled.div`
-  background-color: ${props => props.theme[props.color || 'mediumGray']};
-  min-height: ${props => props.color ? '1em' : '0.5em'};
-  min-width: ${props => props.color ? '1em' : '0.5em'};
+  background-color: ${props => props.theme.colors[props.color || 'mediumGray']};
+  min-height: ${props => props.color ? keyPegWidth(props.pegWidthEm): keyPegWidth(props.pegWidthEm) / 2}em;
+  min-width: ${props => props.color ? keyPegWidth(props.pegWidthEm) : keyPegWidth(props.pegWidthEm)/ 2}em;
   border-radius: 50%;
   border: none;
 `;

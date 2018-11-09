@@ -7,8 +7,8 @@ const Container = styled.main`
   flex-direction: column;
   min-height: 20em;
   min-width: 80%;
-  padding: ${props => props.theme.spacer.lg};
-  background-color: ${props => props.theme.lightGray};
+  padding: ${props => props.theme.spacers.lg};
+  background-color: ${props => props.theme.colors.lightGray};
 `;
 
 export { Container };

@@ -1,10 +1,7 @@
 import { css } from 'styled-components/macro';
+import theme from 'sharedStyle/theme';
 
-const sizes = {
-  desktop: 992,
-  tablet: 768,
-  phone: 576,
-};
+const sizes = theme.mediaSizes;
 
 // Iterate through the sizes and create a media template
 const media = Object.keys(sizes).reduce((accumulator, label) => {
@@ -18,12 +15,12 @@ const media = Object.keys(sizes).reduce((accumulator, label) => {
 }, {});
 
 media.padding = css`
-  padding: ${props => props.theme.spacer.lg};
+  padding: ${props => props.theme.spacers.lg};
   ${media.tablet`
-    padding: ${props => props.theme.spacer.md};
+    padding: ${props => props.theme.spacers.md};
   `}
   ${media.phone`
-    padding: ${props => props.theme.spacer.sm};
+    padding: ${props => props.theme.spacers.sm};
   `}
 `;
 

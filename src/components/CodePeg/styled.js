@@ -8,17 +8,16 @@ const Container = styled.div`
 const PegContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: middle;
-  min-height: 3em;
-  min-width: 3em;
-  margin: 0 ${props => props.theme.spacer.lg} 0 0;
+  justify-content: center;
+  min-height: ${props => props.pegWidthEm}em;
+  min-width: ${props => props.pegWidthEm}em;
+  margin: 0 ${props => props.theme.spacers.lg} 0 0;
 `;
 
 const Peg = styled.button`
-  margin: auto;
-  background-color: ${props => props.theme[props.color || 'mediumGray']};
-  min-height: ${props => props.color ? '3em' : '2em'};
-  min-width: ${props => props.color ? '3em' : '2em'};
+  background-color: ${props => props.theme.colors[props.color || 'mediumGray']};
+  min-height: ${props => props.color ? props.pegWidthEm : props.pegWidthEm * 0.6}em;
+  min-width: ${props => props.color ? props.pegWidthEm : props.pegWidthEm * 0.6}em;
   border-radius: 50%;
   border: none;
 `;
