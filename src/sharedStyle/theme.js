@@ -40,7 +40,7 @@ theme.mediaSizes = {
 theme.pegSizes = {
   desktop: 48,
   tablet: 36,
-  phone: 30,
+  phone: 24,
 };
 
 

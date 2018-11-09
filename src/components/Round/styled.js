@@ -5,29 +5,56 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: stretch;
   padding: ${props => props.theme.spacers.md} 0;
+
+  ${media.tablet`
+    padding: ${props => props.theme.spacers.md} 0;
+  `}
+  ${media.phone`
+    padding: ${props => props.theme.spacers.sm} 0;
+  `}
 `;
 
 const RoundNum = styled.p`
-  width: 2em;
-  text-align: center;
+  min-width: 1.2em;
   margin: 0 ${props => props.theme.spacers.lg} 0 0;
+  text-align: center;
   color: ${props => props.theme.colors.mediumGray};
+
+  ${media.tablet`
+    width: 1.2em;
+    margin: 0 ${props => props.theme.spacers.lg} 0 0;
+    font-size: 1em;
+  `}
+  ${media.phone`
+    min-width: 1em;
+    margin: 0 ${props => props.theme.spacers.md} 0 0;
+    font-size: 0.8em;
+  `}
 `;
 
 const GuessPegs = styled.div`
   display: flex;
   align-items: center;
-  justify-content: middle;
+  justify-content: center;
   flex-wrap: no-wrap;
+  flex-grow: 1;
 `;
 
 const KeyPegs = styled.div`
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
   height: ${props => props.pegWidth}px;
   width: 7em;
+
+  ${media.tablet`
+    width: 5.5em;
+  `}
+  ${media.phone`
+    width: 4em;
+  `}
 `;
 
 

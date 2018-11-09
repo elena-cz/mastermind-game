@@ -1,4 +1,6 @@
 import styled from 'styled-components/macro';
+import media from 'sharedStyle/utils/media';
+
 
 const Container = styled.div`
   position: relative;
@@ -12,6 +14,13 @@ const PegContainer = styled.div`
   min-height: ${props => props.pegWidth}px;
   min-width: ${props => props.pegWidth}px;
   margin: 0 ${props => props.theme.spacers.lg} 0 0;
+
+  ${media.tablet`
+    margin: 0 ${props => props.theme.spacers.lg} 0 0;
+  `}
+  ${media.phone`
+    margin: 0 ${props => props.theme.spacers.md} 0 0;
+  `}
 `;
 
 const Peg = styled.button`

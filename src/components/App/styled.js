@@ -3,7 +3,7 @@ import media from 'sharedStyle/utils/media';
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: auto 20em;
+  grid-template-columns: auto auto;
   grid-template-rows: auto auto 6em;
   grid-template-areas: 
     "header newGame"
@@ -16,7 +16,7 @@ const Grid = styled.div`
   margin: 0 auto 0 auto;
 
   ${media.tablet`
-    grid-template-columns: auto 15em;
+    grid-template-columns: auto auto;
     grid-template-rows: auto auto 5em;
     grid-template-areas: 
       "header newGame"

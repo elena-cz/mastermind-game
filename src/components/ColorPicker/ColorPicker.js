@@ -7,7 +7,7 @@ function ColorPicker({ isVisible, colors, updatePegColor, pegIndex, pegWidth }) 
   const pegRadius = pegWidth / 2;
   const pathRadius = 1.75 * pegRadius;
   const strokeWidth = 1.2 * pegRadius;
-  const colorDotWidth = pegWidth / 2;
+  const colorDotWidth = pegWidth / 3;
 
   const viewBoxWidth = 2 * pathRadius + strokeWidth;
   const viewBoxHeight = pathRadius + (strokeWidth / 2);

@@ -34,4 +34,10 @@ media.fontSizing = fontSize => css`
   `}
 `;
 
+// { font-size: }
+
+// media.scaleProperties = (cssPropsAndVals) => {
+
+// };
+
 export default media;
