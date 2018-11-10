@@ -8,4 +8,11 @@ const H1 = styled.h1`
   ${media.fontSizing(2.5)}
 `;
 
-export { H1 };
+const H2 = styled.h2`
+  margin: 0;
+  font-weight: 300;
+  text-transform: uppercase;
+  ${media.fontSizing(2.2)}
+`;
+
+export { H1, H2 };

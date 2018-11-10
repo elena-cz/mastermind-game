@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { SecretContainer, SecretPegs, SecretPegContainer, SecretPeg, LeftSpace, RightSpace } from './styled';
+import { 
+  SecretContainer,
+  Cover,
+  CoverText,
+  SecretPegs,
+  SecretPegContainer,
+  SecretPeg,
+  LeftSpace,
+  RightSpace
+} from './styled';
 
 
 class Secret extends Component {
@@ -16,9 +25,13 @@ class Secret extends Component {
     const { secretPegs, userWon, userLost, pegWidth } = this.props;
     return (
       <SecretContainer>
+        <Cover />
         <LeftSpace />
 
         <SecretPegs>
+          
+          <CoverText>Secret Code</CoverText>
+          
           {secretPegs.map(color => (
             <SecretPegContainer
               pegWidth={pegWidth}
