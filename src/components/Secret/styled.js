@@ -43,7 +43,10 @@ const Cover = styled.div`
   transform: scaleX(${props => (props.userWon || props.userLost) ? 0 : 1});
   height: 100%;
   background-color: ${props => props.theme.colors.lightGray};
-  transition: transform 2s ease-in 0.3s;
+  transition-property: transform;
+  transition-duration: 2s;
+  transition-timing-function: ease-in;
+  transition-delay: ${props => (props.userWon || props.userLost) ? '0.3s' : 0};
 `;
   // animation: 2s ${slideRight} ease-in;
 
@@ -55,7 +58,12 @@ const CoverText = styled(H2)`
   opacity: ${props => (props.userWon || props.userLost) ? 0 : 1};
   color: ${props => props.theme.colors.mediumGray};
   transition: opacity 0.3s ease-in;
+  transition-property: opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+  transition-delay: ${props => (props.userWon || props.userLost) ? 0 : '2s'};
 `;
+
 
 const SecretPegs = styled(GuessPegs)``;
 
@@ -68,56 +76,13 @@ const LeftSpace = styled(RoundNum)``;
 const RightSpace = styled(KeyPegs)``;
 
 
-export { SecretContainer, Cover, CoverText, SecretPegs, SecretPegContainer, SecretPeg, LeftSpace, RightSpace };
-
-
-// const Grid = styled.div`
-//   display: grid;
-//   grid-template-columns: 70% auto;
-//   grid-template-rows: auto auto 6em;
-//   grid-template-areas: 
-//     "header newGame"
-//     "board sidebar"
-//     "foooter footer";
-//   grid-gap: ${props => props.theme.spacers.lg};
-//   align-content: start;
-//   min-height: 100vh;
-//   width: 80vw;
-//   margin: 0 auto 0 auto;
-
-//   ${media.smallDesktop`
-//     grid-template-columns: 80% auto;
-//     grid-template-rows: auto auto 5em;
-//     grid-template-areas: 
-//       "header newGame"
-//       "board sidebar"
-//       "foooter footer";
-//     grid-gap: ${props => props.theme.spacers.md};
-//     width: 95vw;
-//   `}
-
-//   ${media.tablet`
-//     grid-template-columns: 100%;
-//     grid-template-rows: auto auto auto auto 5em;
-//     grid-template-areas: 
-//       "header"
-//       "newGame"
-//       "board"
-//       "sidebar"
-//       "footer";
-//     grid-gap: ${props => props.theme.spacers.md};
-//     width: 95vw;
-//   `}
-//   ${media.phone`
-//     grid-template-columns: 100%;
-//     grid-template-rows: auto auto auto auto 4em;
-//     grid-template-areas: 
-//       "header"
-//       "newGame"
-//       "board"
-//       "sidebar"
-//       "footer";
-//     grid-gap: ${props => props.theme.spacers.sm};
-//     width: 100vw;
-//   `}
-// `;
+export {
+  SecretContainer,
+  Cover,
+  CoverText,
+  SecretPegs,
+  SecretPegContainer,
+  SecretPeg,
+  LeftSpace,
+  RightSpace,
+};

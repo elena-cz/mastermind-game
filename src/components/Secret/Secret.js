@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { 
+import {
   SecretContainer,
   Cover,
   CoverText,
@@ -8,7 +8,7 @@ import {
   SecretPegContainer,
   SecretPeg,
   LeftSpace,
-  RightSpace
+  RightSpace,
 } from './styled';
 
 
@@ -32,14 +32,14 @@ class Secret extends Component {
         <LeftSpace />
 
         <SecretPegs>
-         
+
           <CoverText
             userWon={userWon}
             userLost={userLost}
           >
             Secret Code
           </CoverText>
-         
+
           {secretPegs.map(color => (
             <SecretPegContainer
               pegWidth={pegWidth}
@@ -54,6 +54,7 @@ class Secret extends Component {
         </SecretPegs>
 
         <RightSpace pegWidth={pegWidth} />
+
       </SecretContainer>
     );
   }

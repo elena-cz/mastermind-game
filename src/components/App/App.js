@@ -4,6 +4,7 @@ import theme from 'sharedStyle/theme';
 import GlobalStyle from 'sharedStyle/globalStyle';
 import { H1 } from 'sharedStyle/typography';
 import Board from 'components/Board';
+import GameResultBanner from 'components/GameResultBanner';
 
 import { Grid, Header, NewGame, Sidebar, Footer } from './styled';
 
@@ -66,6 +67,9 @@ class App extends Component {
     this.setState({
       numPegs,
       maxRounds,
+      currentRoundId: 1,
+      userLost: false,
+      userLost: false,
     });
     this.generateRounds(numPegs, maxRounds);
     this.generateSecretCode(numPegs);
@@ -191,6 +195,10 @@ class App extends Component {
           <Sidebar>
           </Sidebar>
           <Footer />
+          <GameResultBanner
+            userWon={userWon}
+            userLost={userLost}
+          />
         </Grid>
       </ThemeProvider>
     );
