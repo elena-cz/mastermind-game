@@ -7,7 +7,7 @@ const globalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    width: 100%;
+    width: 100vw;
   }
 
   button, input {

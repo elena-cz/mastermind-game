@@ -29,14 +29,17 @@ class App extends Component {
     const desktopMaxWidth = window.matchMedia(`(min-width: ${theme.mediaSizes.desktop}px)`);
     const tabletMaxWidth = window.matchMedia(`(min-width: ${theme.mediaSizes.tablet}px)`);
     const phoneMaxWidth = window.matchMedia(`(min-width: ${theme.mediaSizes.phone}px)`);
+    const smallPhoneMaxWidth = window.matchMedia(`(min-width: ${theme.mediaSizes.smallPhone}px)`);
 
     const updatePegWidth = () => {
       if (desktopMaxWidth.matches) {
         this.setState({ pegWidth: theme.pegSizes.desktop });
       } else if (tabletMaxWidth.matches) {
         this.setState({ pegWidth: theme.pegSizes.tablet });
-      } else {
+      } else if (phoneMaxWidth.matches) {
         this.setState({ pegWidth: theme.pegSizes.phone });
+      } else {
+        this.setState({ pegWidth: theme.pegSizes.smallPhone });
       }
     };
 
@@ -48,6 +51,7 @@ class App extends Component {
 
     this.newGame(6);
     setTimeout(() => {
+      // this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue']);
       this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue', 'purple']);
       // this.handleNewGuess(['red', 'red', 'red', 'red']);
       // this.handleNewGuess(['red', 'red', 'yellow', 'yellow']);

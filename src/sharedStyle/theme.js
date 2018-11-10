@@ -32,15 +32,23 @@ theme.spacers = {
 };
 
 theme.mediaSizes = {
-  desktop: 992,
+  largDesktop: 1440,
+  smallDesktop: 1024,
   tablet: 768,
   phone: 576,
+  smallPhone: 384,
 };
+// theme.mediaSizes = {
+//   desktop: 992,
+//   tablet: 768,
+//   phone: 576,
+// };
 
 theme.pegSizes = {
   desktop: 48,
   tablet: 36,
   phone: 24,
+  smallPhone: 18,
 };
 
 
