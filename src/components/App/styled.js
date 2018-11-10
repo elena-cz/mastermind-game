@@ -8,7 +8,7 @@ const Grid = styled.div`
   grid-template-areas: 
     "header newGame"
     "board sidebar"
-    "footer footer";
+    "foooter footer";
   grid-gap: ${props => props.theme.spacers.lg};
   align-content: start;
   min-height: 100vh;
@@ -21,7 +21,7 @@ const Grid = styled.div`
     grid-template-areas: 
       "header newGame"
       "board sidebar"
-      "footer footer";
+      "foooter footer";
     grid-gap: ${props => props.theme.spacers.md};
     width: 100%;
   `}

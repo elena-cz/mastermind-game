@@ -164,7 +164,7 @@ class App extends Component {
   }
 
   render() {
-    const { currentRoundId, rounds, colors, pegWidth } = this.state;
+    const { currentRoundId, rounds, colors, pegWidth, secretPegs, userWon, userLost } = this.state;
     const { handleNewGuess } = this;
     return (
       <ThemeProvider theme={theme}>
@@ -180,6 +180,9 @@ class App extends Component {
             colors={colors}
             handleNewGuess={handleNewGuess}
             pegWidth={pegWidth}
+            secretPegs={secretPegs}
+            userWon={userWon}
+            userLost={userLost}
           />
           <Sidebar>
           </Sidebar>

@@ -1,24 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Round from 'components/Round';
+import Secret from 'components/Secret';
 import { Container } from './styled';
 
-function Board({ currentRoundId, rounds, colors, handleNewGuess, pegWidth }) {
+function Board(props) {
+
+  const {
+    currentRoundId,
+    rounds,
+    colors,
+    handleNewGuess,
+    pegWidth,
+    secretPegs,
+    userWon,
+    userLost,
+  } = props;
+
   return (
-    <Container>
-      {rounds.map(round => (
-        <Round
-          key={round.id}
-          id={round.id}
-          guessPegs={round.guessPegs}
-          keyPegs={round.keyPegs}
-          isCurrentRound={currentRoundId === round.id}
-          colors={colors}
-          handleNewGuess={handleNewGuess}
-          pegWidth={pegWidth}
-        />
-      ))}
-    </Container>
+    <div>
+      <Container>
+        {rounds.map(round => (
+          <Round
+            key={round.id}
+            id={round.id}
+            guessPegs={round.guessPegs}
+            keyPegs={round.keyPegs}
+            isCurrentRound={currentRoundId === round.id}
+            colors={colors}
+            handleNewGuess={handleNewGuess}
+            pegWidth={pegWidth}
+          />
+        ))}
+      </Container>
+      <Secret
+        pegWidth={pegWidth}
+        secretPegs={secretPegs}
+        userWon={userWon}
+        userLost={userLost}
+      />
+    </div>
   );
 }
 
@@ -32,6 +53,9 @@ Board.propTypes = {
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleNewGuess: PropTypes.func.isRequired,
   pegWidth: PropTypes.number.isRequired,
+  secretPegs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  userWon: PropTypes.bool.isRequired,
+  userLost: PropTypes.bool.isRequired,
 };
 
 
