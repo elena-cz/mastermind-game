@@ -25,13 +25,21 @@ class Secret extends Component {
     const { secretPegs, userWon, userLost, pegWidth } = this.props;
     return (
       <SecretContainer>
-        <Cover />
+        <Cover
+          userWon={userWon}
+          userLost={userLost}
+        />
         <LeftSpace />
 
         <SecretPegs>
-          
-          <CoverText>Secret Code</CoverText>
-          
+         
+          <CoverText
+            userWon={userWon}
+            userLost={userLost}
+          >
+            Secret Code
+          </CoverText>
+         
           {secretPegs.map(color => (
             <SecretPegContainer
               pegWidth={pegWidth}

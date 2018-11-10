@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled, { keyframes } from 'styled-components/macro';
 import media from 'sharedStyle/utils/media';
 import { H2 } from 'sharedStyle/typography';
 import { Container, RoundNum, GuessPegs, KeyPegs } from 'components/Round/styled';
@@ -25,20 +25,36 @@ const SecretContainer = styled(Container)`
   `}
 `;
 
+// const slideRight = keyframes`
+//   0% {
+//     width: 100%;
+//   }
+//   100% {
+//     width: 0%;
+//   }
+// `;
+
 const Cover = styled.div`
   position: absolute;
   right: 0;
   z-index: 100;
   width: 100%;
+  transform-origin: right;
+  transform: scaleX(${props => (props.userWon || props.userLost) ? 0 : 1});
   height: 100%;
   background-color: ${props => props.theme.colors.lightGray};
+  transition: transform 2s ease-in 0.3s;
 `;
+  // animation: 2s ${slideRight} ease-in;
+
 
 const CoverText = styled(H2)`
   position: absolute;
   display: block;
   z-index: 200;
+  opacity: ${props => (props.userWon || props.userLost) ? 0 : 1};
   color: ${props => props.theme.colors.mediumGray};
+  transition: opacity 0.3s ease-in;
 `;
 
 const SecretPegs = styled(GuessPegs)``;
