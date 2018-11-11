@@ -7,6 +7,7 @@ import { PegContainer, Peg } from 'components/CodePeg/styled';
 
 const SecretContainer = styled(Container)`
   position: fixed;
+  z-index: 200;
   bottom: 0;
   width: ${0.7 * 80}vw;
   box-sizing: border-box;
@@ -37,7 +38,7 @@ const SecretContainer = styled(Container)`
 const Cover = styled.div`
   position: absolute;
   right: 0;
-  z-index: 100;
+  z-index: 300;
   width: 100%;
   transform-origin: right;
   transform: scaleX(${props => (props.userWon || props.userLost) ? 0 : 1});
@@ -54,10 +55,9 @@ const Cover = styled.div`
 const CoverText = styled(H2)`
   position: absolute;
   display: block;
-  z-index: 200;
+  z-index: 400;
   opacity: ${props => (props.userWon || props.userLost) ? 0 : 1};
   color: ${props => props.theme.colors.mediumGray};
-  transition: opacity 0.3s ease-in;
   transition-property: opacity;
   transition-duration: 0.3s;
   transition-timing-function: ease-in;

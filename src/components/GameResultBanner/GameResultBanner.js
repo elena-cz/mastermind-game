@@ -10,16 +10,34 @@ class GameResultBanner extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      showBanner: false,
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.userWon) {
+      this.showBanner();
+    }
+  }
+
+  showBanner = () => {
+    setTimeout(() => {
+      this.setState({ showBanner: true });
+      this.hideBanner();
+    },
+    2300);
+  }
+
+  hideBanner = () => {
+    setTimeout(() => { this.setState({ showBanner: false }); }, 4500);
   }
 
 
   render() {
-    const { userWon, userLost } = this.props;
+    const { showBanner } = this.state;
     return (
       <UserWonBanner
-        userWon={userWon}
-        userLost={userLost}
+        showBanner={showBanner}
       >
         You Won!!
       </UserWonBanner>
