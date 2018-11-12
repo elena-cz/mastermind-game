@@ -71,8 +71,11 @@ const KeyPeg = styled.div`
   background-color: ${props => props.theme.colors[props.color || 'mediumGray']};
   min-height: ${props => props.color ? props.pegWidth / 3 : props.pegWidth / 6}px;
   min-width: ${props => props.color ? props.pegWidth / 3 : props.pegWidth / 6}px;
+  box-sizing: border-box;
   border-radius: 50%;
-  border: none;
+  border-style: solid;
+  border-width: ${props => props.color ? 1 : 0}px;
+  border-color: ${props => props.theme.black};
 `;
 
 

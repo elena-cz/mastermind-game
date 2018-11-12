@@ -49,6 +49,8 @@ class App extends Component {
     desktopMaxWidth.addListener(updatePegWidth);
     tabletMaxWidth.addListener(updatePegWidth);
     phoneMaxWidth.addListener(updatePegWidth);
+    smallPhoneMaxWidth.addListener(updatePegWidth);
+
 
     this.newGame(6);
     setTimeout(() => {
@@ -145,7 +147,7 @@ class App extends Component {
         return;
       }
       if (secretPegCounts[guessPeg]) {
-        keyPegs[index] = 'primary';
+        keyPegs[index] = 'white';
         secretPegCounts[guessPeg] -= 1;
       } else {
         keyPegs[index] = '';

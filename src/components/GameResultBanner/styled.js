@@ -3,18 +3,6 @@ import media from 'sharedStyle/utils/media';
 import { H2 } from 'sharedStyle/typography';
 
 
-
-// @keyframes easeOutBounce {
-//         0% {width: 50px; -webkit-animation-timing-function: ease-in;}
-//         33% {width: 250px; -webkit-animation-timing-function: ease-out;}
-//         50% {width: 210px; -webkit-animation-timing-function: ease-in;}
-//         66% {width: 250px; -webkit-animation-timing-function: ease-out;}
-//         82% {width: 240px; -webkit-animation-timing-function: ease-in;}
-//         92% {width: 250px; -webkit-animation-timing-function: ease-out;}
-//         97% {width: 245px; -webkit-animation-timing-function: ease-in;}
-//         100% { width: 250px;}
-//     }
-
 const target = -50;
 
 const flyUp = keyframes`
@@ -71,22 +59,6 @@ const flyDown = keyframes`
   }
 `;
 
-const rotateY = keyframes`
-  0% {
-    transform: rotateY(0) translateY(${target}vh);
-  }
-  25% {
-    transform: rotateY(-20deg) translateY(${target}vh);
-  }
-  75% {
-    transform: rotateY(20deg) translateY(${target}vh);
-  }
-  100% {
-    transform: rotateY(0deg) translateY(${target}vh);
-  }
-`;
-
-
 const animation = css`
   animation: 
     ${flyUp} 1.5s,
@@ -95,7 +67,7 @@ const animation = css`
 `;
 
 
-const UserWonBanner = styled(H2)`
+const Banner = styled(H2)`
   visibility: ${props => props.showBanner ? 'visible' : 'hidden'};
   position: fixed;
   bottom: 0;
@@ -106,35 +78,23 @@ const UserWonBanner = styled(H2)`
   padding: ${props => props.theme.spacers.sm} ${props => props.theme.spacers.lg};
   margin: ${props => props.theme.spacers.sm};
   background-color: ${props => props.theme.colors.white};
-  border: 1px solid ${props => props.theme.colors.purple};
-  color: ${props => props.theme.colors.primary};
+  border: 1px solid ${props => props.userWon ? props.theme.colors.primary : props.theme.colors.red};
+  color: ${props => props.userWon ? props.theme.colors.primary : props.theme.colors.red};
   ${props => props.showBanner ? animation : ''}
 
+  ${media.smallDesktop`
+    left: ${0.5 * 0.8 * 95}vw;
+  `}
   ${media.tablet`
+    left: ${0.5 * 95}vw;
     padding: ${props => props.theme.spacers.sm} ${props => props.theme.spacers.md};
   `}
   ${media.phone`
+    left: ${0.5 * 100}vw;
     padding: ${props => props.theme.spacers.sm} ${props => props.theme.spacers.md};
   `}
 `;
 
-// width: ${0.7 * 80}vw;
-//   box-sizing: border-box;
-//   background-color: ${props => props.theme.colors.white};
-//   border: 1px solid ${props => props.theme.colors.mediumGray};
-//   box-shadow: 1px 2px 4px #bdbdbd;
-
-//   ${media.smallDesktop`
-//     width: ${0.8 * 95}vw;
-//   `}
-//   ${media.tablet`
-//     width: ${95}vw;
-//   `}
-//   ${media.phone`
-//     width: ${100}vw;
-//   `}
-
-
 export {
-  UserWonBanner,
+  Banner,
 };

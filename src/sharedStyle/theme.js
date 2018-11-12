@@ -1,5 +1,3 @@
-// import { responsiveColorPickerVariables } from 'sharedStyle/utils/responsiveShapes';
-// import media from 'sharedStyle/utils/media';
 
 const theme = {};
 
@@ -11,7 +9,7 @@ theme.colors = {
   mediumGray: '#9e9e9e',
   darkGray: '##424242',
   black: '#000000',
-  red: '#d81b60',
+  red: '#e53935',
   orange: '#fb8c00',
   yellow: '#fdd835',
   green: '#6dc113',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  UserWonBanner,
+  Banner,
 } from './styled';
 
 
@@ -15,7 +15,7 @@ class GameResultBanner extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.userWon) {
+    if (nextProps.userWon || nextProps.userLost) {
       this.showBanner();
     }
   }
@@ -34,13 +34,15 @@ class GameResultBanner extends Component {
 
 
   render() {
+    const { userWon } = this.props;
     const { showBanner } = this.state;
     return (
-      <UserWonBanner
+      <Banner
         showBanner={showBanner}
+        userWon={userWon}
       >
-        You Won!!
-      </UserWonBanner>
+        { userWon ? 'You Won!!' : 'Game over'}
+      </Banner>
     );
   }
 
