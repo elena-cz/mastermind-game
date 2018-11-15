@@ -11,6 +11,7 @@ function Board(props) {
     rounds,
     colors,
     handleNewGuess,
+    revealCodeAndEndGame,
     pegWidth,
     secretPegs,
     userWon,
@@ -38,6 +39,7 @@ function Board(props) {
         secretPegs={secretPegs}
         userWon={userWon}
         userLost={userLost}
+        revealCodeAndEndGame={revealCodeAndEndGame}
       />
     </div>
   );
@@ -52,6 +54,7 @@ Board.propTypes = {
   })).isRequired,
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleNewGuess: PropTypes.func.isRequired,
+  revealCodeAndEndGame: PropTypes.func.isRequired,
   pegWidth: PropTypes.number.isRequired,
   secretPegs: PropTypes.arrayOf(PropTypes.string).isRequired,
   userWon: PropTypes.bool.isRequired,
