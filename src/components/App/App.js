@@ -70,7 +70,7 @@ class App extends Component {
       numPegs,
       maxRounds,
       currentRoundId: 1,
-      userLost: false,
+      userWon: false,
       userLost: false,
     });
     this.generateRounds(numPegs, maxRounds);

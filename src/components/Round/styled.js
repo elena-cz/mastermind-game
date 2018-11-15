@@ -63,14 +63,14 @@ const KeyPegContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: ${props => props.pegWidth / 3}px;
-  min-height: ${props => props.pegWidth / 3}px;
+  min-width: ${props => Math.round(props.pegWidth / 3)}px;
+  min-height: ${props => Math.round(props.pegWidth / 3)}px;
 `;
 
 const KeyPeg = styled.div`
   background-color: ${props => props.theme.colors[props.color || 'mediumGray']};
-  min-height: ${props => props.color ? props.pegWidth / 3 : props.pegWidth / 6}px;
-  min-width: ${props => props.color ? props.pegWidth / 3 : props.pegWidth / 6}px;
+  min-height: ${props => props.color ? Math.round(props.pegWidth / 3) : Math.round(props.pegWidth / 6)}px;
+  min-width: ${props => props.color ? Math.round(props.pegWidth / 3) : Math.round(props.pegWidth / 6)}px;
   box-sizing: border-box;
   border-radius: 50%;
   border-style: solid;

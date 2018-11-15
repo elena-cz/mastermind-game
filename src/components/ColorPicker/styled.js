@@ -37,7 +37,7 @@ const ViewBox = styled.svg.attrs({
   position: relative;
   height: ${props => props.viewBoxHeight}px;
   width: ${props => props.viewBoxWidth}px;
-  filter: drop-shadow(1px 2px 4px #bdbdbd);
+  filter: drop-shadow(${props => props.theme.boxShadow});
 `;
 
 const CurvePath = styled.path.attrs({

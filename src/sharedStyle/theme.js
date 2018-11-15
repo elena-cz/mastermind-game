@@ -33,8 +33,8 @@ theme.mediaSizes = {
   largDesktop: 1440,
   smallDesktop: 1024,
   tablet: 768,
-  phone: 576,
-  smallPhone: 384,
+  phone: 375,
+  smallPhone: 325,
 };
 // theme.mediaSizes = {
 //   desktop: 992,
@@ -45,9 +45,11 @@ theme.mediaSizes = {
 theme.pegSizes = {
   desktop: 48,
   tablet: 36,
-  phone: 24,
-  smallPhone: 18,
+  phone: 20,
+  smallPhone: 16,
 };
+
+theme.boxShadow = '1px 2px 4px #bdbdbd';
 
 
 export default theme;

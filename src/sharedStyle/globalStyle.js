@@ -15,10 +15,7 @@ const globalStyle = createGlobalStyle`
     cursor: pointer;
     padding: 0;
     margin: 0;
-
-    &:focus {
-      outline:0;
-    }
+    outline:0;
 
     &:disabled {
       cursor: auto;
