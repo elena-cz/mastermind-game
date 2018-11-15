@@ -25,7 +25,7 @@ class Secret extends Component {
 
 
   render() {
-    const { secretPegs, userWon, userLost, pegWidth } = this.props;
+    const { secretPegs, userWon, userLost, pegWidth, revealCodeAndEndGame } = this.props;
     return (
       <SecretContainer>
 
@@ -34,11 +34,16 @@ class Secret extends Component {
           userLost={userLost}
         >
 
-          <RevealContainer>
+          <RevealContainer
+            userWon={userWon}
+            userLost={userLost}
+          >
             <RevealTooltip>
-              Reveal Code
+              Reveal code & end game
             </RevealTooltip>
-            <RevealIconButton />
+            <RevealIconButton
+              onClick={() => revealCodeAndEndGame()}
+            />
           </RevealContainer>
 
         </Cover>
@@ -65,7 +70,7 @@ class Secret extends Component {
               />
             </SecretPegContainer>
           ))}
- 
+
         </SecretPegs>
 
         <RightSpace pegWidth={pegWidth} />
@@ -81,6 +86,7 @@ Secret.propTypes = {
   userWon: PropTypes.bool.isRequired,
   userLost: PropTypes.bool.isRequired,
   pegWidth: PropTypes.number.isRequired,
+  revealCodeAndEndGame: PropTypes.func.isRequired,
 };
 
 export default Secret;

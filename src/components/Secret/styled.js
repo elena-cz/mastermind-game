@@ -63,6 +63,11 @@ const RevealContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   margin: ${props => props.theme.spacers.sm};
+  opacity: ${props => (props.userWon || props.userLost) ? 0 : 1};
+  transition-property: opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+  transition-delay: ${props => (props.userWon || props.userLost) ? 0 : '2s'};
 `;
 
 const RevealIconButton = styled.button.attrs({

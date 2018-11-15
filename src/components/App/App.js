@@ -4,9 +4,10 @@ import theme from 'sharedStyle/theme';
 import GlobalStyle from 'sharedStyle/globalStyle';
 import { H1 } from 'sharedStyle/typography';
 import Board from 'components/Board';
+import NewGame from 'components/NewGame';
 import GameResultBanner from 'components/GameResultBanner';
 
-import { Grid, Header, NewGame, Sidebar, Footer } from './styled';
+import { Grid, Header, Sidebar, Footer } from './styled';
 
 class App extends Component {
 
@@ -51,21 +52,20 @@ class App extends Component {
     phoneMaxWidth.addListener(updatePegWidth);
     smallPhoneMaxWidth.addListener(updatePegWidth);
 
-
     this.newGame(6);
     setTimeout(() => {
       // this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue']);
       this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue', 'purple']);
-      // this.handleNewGuess(['red', 'red', 'red', 'red']);
-      // this.handleNewGuess(['red', 'red', 'yellow', 'yellow']);
-      // this.handleNewGuess(['blue', 'blue', 'green', 'green']);
-      // this.handleNewGuess(this.state.secretPegs);
     }, 100);
   }
 
 
   newGame(numPegs) {
+    if (!numPegs) {
+      numPegs = this.state.numPegs;
+    }
     const maxRounds = Math.floor(numPegs * 2.5);
+
     this.setState({
       numPegs,
       maxRounds,
@@ -112,10 +112,8 @@ class App extends Component {
     this.setState({ rounds: roundsCopy });
 
     if (isCorrectGuess) {
-      console.log('You won!');
       this.setState({ userWon: true });
     } else if (currentRoundId === maxRounds) {
-      console.log('You lost');
       this.setState({ userLost: true });
     } else {
       this.setState({ currentRoundId: currentRoundId + 1 });
@@ -170,20 +168,28 @@ class App extends Component {
       isCorrectGuess,
       keyPegs,
     };
+  }
 
+  revealCodeAndEndGame = () => {
+    this.setState({ userLost: true });
   }
 
   render() {
     const { currentRoundId, rounds, colors, pegWidth, secretPegs, userWon, userLost } = this.state;
-    const { handleNewGuess } = this;
+    const { handleNewGuess, revealCodeAndEndGame } = this;
     return (
       <ThemeProvider theme={theme}>
         <Grid>
           <GlobalStyle />
+
           <Header>
             <H1>Mastermind</H1>
           </Header>
-          <NewGame />
+
+          <NewGame
+            newGame
+          />
+
           <Board
             currentRoundId={currentRoundId}
             rounds={rounds}
@@ -193,14 +199,19 @@ class App extends Component {
             secretPegs={secretPegs}
             userWon={userWon}
             userLost={userLost}
+            revealCodeAndEndGame={revealCodeAndEndGame}
           />
+
           <Sidebar>
           </Sidebar>
+
           <Footer />
+
           <GameResultBanner
             userWon={userWon}
             userLost={userLost}
           />
+
         </Grid>
       </ThemeProvider>
     );

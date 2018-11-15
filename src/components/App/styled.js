@@ -57,10 +57,6 @@ const Header = styled.header`
   ${media.padding}
 `;
 
-const NewGame = styled.section`
-  grid-area: newGame;
-`;
-
 const Sidebar = styled.section`
   grid-area: sidebar;
 `;
@@ -69,4 +65,4 @@ const Footer = styled.footer`
   grid-area: footer;
 `;
 
-export { Grid, Header, NewGame, Sidebar, Footer };
+export { Grid, Header, Sidebar, Footer };
