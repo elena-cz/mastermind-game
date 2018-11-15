@@ -1,8 +1,9 @@
-import styled, { keyframes } from 'styled-components/macro';
+import styled from 'styled-components/macro';
 import media from 'sharedStyle/utils/media';
 import { H2 } from 'sharedStyle/typography';
 import { Container, RoundNum, GuessPegs, KeyPegs } from 'components/Round/styled';
 import { PegContainer, Peg } from 'components/CodePeg/styled';
+import visibilityIcon from 'assets/visibility-icon.svg';
 
 
 const SecretContainer = styled(Container)`
@@ -13,7 +14,7 @@ const SecretContainer = styled(Container)`
   box-sizing: border-box;
   background-color: ${props => props.theme.colors.white};
   border: 1px solid ${props => props.theme.colors.mediumGray};
-  box-shadow: 1px 2px 4px #bdbdbd;
+  box-shadow: ${props => props.theme.boxShadow};
 
   ${media.smallDesktop`
     width: ${0.8 * 95}vw;
@@ -25,15 +26,6 @@ const SecretContainer = styled(Container)`
     width: ${100}vw;
   `}
 `;
-
-// const slideRight = keyframes`
-//   0% {
-//     width: 100%;
-//   }
-//   100% {
-//     width: 0%;
-//   }
-// `;
 
 const Cover = styled.div`
   position: absolute;
@@ -49,7 +41,6 @@ const Cover = styled.div`
   transition-timing-function: ease-in;
   transition-delay: ${props => (props.userWon || props.userLost) ? '0.3s' : 0};
 `;
-  // animation: 2s ${slideRight} ease-in;
 
 
 const CoverText = styled(H2)`
@@ -64,6 +55,52 @@ const CoverText = styled(H2)`
   transition-delay: ${props => (props.userWon || props.userLost) ? 0 : '2s'};
 `;
 
+const RevealContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: ${props => props.theme.spacers.sm};
+`;
+
+const RevealIconButton = styled.button.attrs({
+  'aria-labelledby': 'reveal-icon-tooltip',
+})`
+  width: 2em;
+  height: 2em;
+  margin-left: ${props => props.theme.spacers.sm};
+  background-image: url(${visibilityIcon});
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+
+  ${media.tablet`
+    width: 1.6em;
+    height: 1.6em;
+  `}
+  ${media.phone`
+    width: 1.2em;
+    height: 1.2em;
+  `}
+`;
+
+const RevealTooltip = styled.div.attrs({
+  role: 'tooltip',
+  id: 'reveal-icon-tooltip',
+})`
+  display: none;
+  padding: ${props => props.theme.spacers.xs};
+  background-color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.black};
+  box-shadow: ${props => props.theme.boxShadow}; 
+  font-size: 0.8em;
+
+  ${RevealContainer}:hover & {
+    display: block;
+  }
+`;
 
 const SecretPegs = styled(GuessPegs)``;
 
@@ -80,6 +117,9 @@ export {
   SecretContainer,
   Cover,
   CoverText,
+  RevealContainer,
+  RevealIconButton,
+  RevealTooltip,
   SecretPegs,
   SecretPegContainer,
   SecretPeg,

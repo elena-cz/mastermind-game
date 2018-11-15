@@ -4,6 +4,9 @@ import {
   SecretContainer,
   Cover,
   CoverText,
+  RevealContainer,
+  RevealIconButton,
+  RevealTooltip,
   SecretPegs,
   SecretPegContainer,
   SecretPeg,
@@ -25,10 +28,21 @@ class Secret extends Component {
     const { secretPegs, userWon, userLost, pegWidth } = this.props;
     return (
       <SecretContainer>
+
         <Cover
           userWon={userWon}
           userLost={userLost}
-        />
+        >
+
+          <RevealContainer>
+            <RevealTooltip>
+              Reveal Code
+            </RevealTooltip>
+            <RevealIconButton />
+          </RevealContainer>
+
+        </Cover>
+
         <LeftSpace />
 
         <SecretPegs>
@@ -51,6 +65,7 @@ class Secret extends Component {
               />
             </SecretPegContainer>
           ))}
+ 
         </SecretPegs>
 
         <RightSpace pegWidth={pegWidth} />
