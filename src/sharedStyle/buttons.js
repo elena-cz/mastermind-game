@@ -11,10 +11,8 @@ const PrimaryButton = styled.button`
   text-transform: uppercase;
   color: white;
 
-  &:hover {
-
-  }
-  &:focus {
+  &:hover, &:focus {
+    color: ${props => props.theme.colors.lightPrimary};
   }
 
   ${media.tablet`
@@ -41,10 +39,7 @@ const OutlineButton = styled.button`
   text-transform: uppercase;
   color: ${props => props.theme.colors.black};
 
-  &:hover {
-    background-color: ${props => props.theme.colors.lightPrimary};
-  }
-  &:focus {
+  &:hover, &:focus {
     background-color: ${props => props.theme.colors.lightPrimary};
   }
 
@@ -65,7 +60,11 @@ const OutlineButton = styled.button`
   `}
 `;
 
+
 const RoundButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 1.8em;
   width: 1.8em;
   padding: 0.25em .25em;
@@ -73,18 +72,26 @@ const RoundButton = styled.button`
   border: 1px solid ${props => props.theme.colors.black};
   border-radius: 50%;
   font-size: 1.3em;
-  line-height: 1.3em;
+  line-height: 1;
   text-transform: uppercase;
+  text-align: center;
   color: ${props => props.theme.colors.black};
 
+  &:hover, &:focus {
+    background-color: ${props => props.theme.colors.lightPrimary};
+  }
+
   ${media.tablet`
+    height: 1.6em;
+    width: 1.6em;
     font-size: 1.1em;
-    line-height: 1.1em;
   `}
   ${media.phone`
+    height: 1.5em;
+    width: 1.5em;
     font-size: 1em;
-    line-height: 1em;
   `}
 `;
+
 
 export { PrimaryButton, OutlineButton, RoundButton };
