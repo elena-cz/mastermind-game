@@ -8,7 +8,9 @@ function NewGame({ newGame, numPegs }) {
   return (
     <Container>
 
-      <NewGameButton>
+      <NewGameButton
+        onClick={() => newGame(numPegs)}
+      >
         New Game
       </NewGameButton>
 

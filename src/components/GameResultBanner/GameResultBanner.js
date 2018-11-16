@@ -14,8 +14,10 @@ class GameResultBanner extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.userWon || nextProps.userLost) {
+  componentDidUpdate(prevProps) {
+    const { userWon, userLost } = this.props;
+    if ((userWon && userLost !== prevProps.userWon) || 
+      (userLost && userLost !== prevProps.userLost)) {
       this.showBanner();
     }
   }

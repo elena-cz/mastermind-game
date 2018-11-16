@@ -15,6 +15,14 @@ class Round extends Component {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    const { secretPegs, guessPegs } = this.props;
+    if (secretPegs !== prevProps.secretPegs) {
+      const guessColors = new Array(guessPegs.length).fill('');
+      this.setState({ guessColors });
+    }
+  }
+
   showColorPicker = (indexOfPeg) => {
     this.setState({ indexOfVisibleColorPicker: indexOfPeg });
   }
@@ -90,6 +98,7 @@ Round.propTypes = {
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleNewGuess: PropTypes.func.isRequired,
   pegWidth: PropTypes.number.isRequired,
+  secretPegs: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Round;

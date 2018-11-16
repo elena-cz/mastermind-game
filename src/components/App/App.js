@@ -44,17 +44,6 @@ class App extends Component {
         this.setState({ pegWidth: theme.pegSizes.desktop });
       }
     };
-    // const updatePegWidth = () => {
-    //   if (desktopMaxWidth.matches) {
-    //     this.setState({ pegWidth: theme.pegSizes.desktop });
-    //   } else if (tabletMaxWidth.matches) {
-    //     this.setState({ pegWidth: theme.pegSizes.tablet });
-    //   } else if (phoneMaxWidth.matches) {
-    //     this.setState({ pegWidth: theme.pegSizes.phone });
-    //   } else {
-    //     this.setState({ pegWidth: theme.pegSizes.smallPhone });
-    //   }
-    // };
 
     updatePegWidth();
 
@@ -71,8 +60,7 @@ class App extends Component {
   }
 
 
-  newGame = (numberOfPegs) => {
-    const numPegs = numberOfPegs || this.state.numPegs;
+  newGame = (numPegs) => {
     const maxRounds = Math.floor(numPegs * 2.5);
 
     this.setState({

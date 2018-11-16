@@ -31,6 +31,7 @@ function Board(props) {
             colors={colors}
             handleNewGuess={handleNewGuess}
             pegWidth={pegWidth}
+            secretPegs={secretPegs}
           />
         ))}
       </Container>
