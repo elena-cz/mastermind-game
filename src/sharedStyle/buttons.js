@@ -2,11 +2,12 @@ import styled from 'styled-components/macro';
 import media from 'sharedStyle/utils/media';
 
 const PrimaryButton = styled.button`
-  padding: 0.5em 1.5em;
+  padding: 0.25em 1em;
   background-color: ${props => props.theme.colors.black};
   border: 1px solid ${props => props.theme.colors.black};
   border-radius: 1em;
-  font-size: 1.5em;
+  font-size: 1.3em;
+  line-height: 1.3em;
   text-transform: uppercase;
   color: white;
 
@@ -17,12 +18,14 @@ const PrimaryButton = styled.button`
   }
 
   ${media.tablet`
-    font-size: 1.2em;
-    padding: 0.5em 1.25em;
+    font-size: 1.1em;
+    line-height: 1.1em;
+    padding: 0.25em 1em;
   `}
   ${media.phone`
     font-size: 1em;
-    padding: 0.4em 1em;
+    line-height: 1em;
+    padding: 0.25em 0.5em;
   `}
 `;
 
@@ -34,6 +37,7 @@ const OutlineButton = styled.button`
   border: 1px solid ${props => props.theme.colors.black};
   border-radius: 1em;
   font-size: 1.2em;
+  line-height: 1.2em;
   text-transform: uppercase;
   color: ${props => props.theme.colors.black};
 
@@ -46,22 +50,41 @@ const OutlineButton = styled.button`
 
   ${media.tablet`
     font-size: 1em;
-    padding: 0.25em 0.75em;
+    line-height: 1em;
+    padding: 0.25em 0.5em;
   `}
   ${media.phone`
     font-size: 0.8em;
-    padding: 0.2em 0.5em;
+    line-height: 0.8em;
+    padding: 0.25em 0.3em;
+  `}
+  ${media.smallPhone`
+    font-size: 0.7em;
+    line-height: 0.7em;
+    padding: 0.25em 0.3em;
   `}
 `;
 
 const RoundButton = styled.button`
-  padding: 0.5em .5em;
+  height: 1.8em;
+  width: 1.8em;
+  padding: 0.25em .25em;
   background-color: ${props => props.theme.colors.white};
   border: 1px solid ${props => props.theme.colors.black};
   border-radius: 50%;
-  font-size: 1.5em;
+  font-size: 1.3em;
+  line-height: 1.3em;
   text-transform: uppercase;
   color: ${props => props.theme.colors.black};
+
+  ${media.tablet`
+    font-size: 1.1em;
+    line-height: 1.1em;
+  `}
+  ${media.phone`
+    font-size: 1em;
+    line-height: 1em;
+  `}
 `;
 
-export { PrimaryButton, OutlineButton };
+export { PrimaryButton, OutlineButton, RoundButton };

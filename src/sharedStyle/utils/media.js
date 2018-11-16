@@ -33,6 +33,18 @@ media.fontSizing = fontSize => css`
     font-size: ${fontSize * 0.6}em;
   `}
 `;
+// media.fontSizing = fontSize => css`
+//   font-size: ${fontSize}em;
+//   line-height: ${fontSize}em;
+//   ${media.tablet`
+//     font-size: ${fontSize * 0.8}em;
+//     line-height: ${fontSize * 0.8}em;
+//   `}
+//   ${media.phone`
+//     font-size: ${fontSize * 0.6}em;
+//     line-height: ${fontSize * 0.6}em;
+//   `}
+// `;
 
 // { font-size: }
 

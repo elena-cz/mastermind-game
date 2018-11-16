@@ -6,7 +6,7 @@ const Grid = styled.div`
   grid-template-columns: 70% auto;
   grid-template-rows: auto auto 6em;
   grid-template-areas: 
-    "header newGame"
+    "header header"
     "board sidebar"
     "foooter footer";
   grid-gap: ${props => props.theme.spacers.lg};
@@ -16,22 +16,10 @@ const Grid = styled.div`
   margin: 0 auto 0 auto;
 
   ${media.smallDesktop`
-    grid-template-columns: 80% auto;
-    grid-template-rows: auto auto 5em;
-    grid-template-areas: 
-      "header newGame"
-      "board sidebar"
-      "foooter footer";
-    grid-gap: ${props => props.theme.spacers.md};
-    width: 95vw;
-  `}
-
-  ${media.tablet`
     grid-template-columns: 100%;
     grid-template-rows: auto auto auto auto 5em;
     grid-template-areas: 
       "header"
-      "newGame"
       "board"
       "sidebar"
       "footer";
@@ -42,8 +30,7 @@ const Grid = styled.div`
     grid-template-columns: 100%;
     grid-template-rows: auto auto auto auto 4em;
     grid-template-areas: 
-      "header"
-      "newGame"
+      "header"      
       "board"
       "sidebar"
       "footer";
@@ -52,9 +39,23 @@ const Grid = styled.div`
   `}
 `;
 
+
 const Header = styled.header`
   grid-area: header;
-  ${media.padding}
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: ${props => props.theme.spacers.lg}; 
+
+  ${media.smallDesktop`
+    padding-top: ${props => props.theme.spacers.md};
+  `}
+  ${media.phone`
+    padding-top: ${props => props.theme.spacers.sm};
+    padding-left: ${props => props.theme.spacers.sm};
+    padding-right: ${props => props.theme.spacers.sm};
+  `}
 `;
 
 const Sidebar = styled.section`

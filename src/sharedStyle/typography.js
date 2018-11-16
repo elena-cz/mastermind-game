@@ -5,7 +5,8 @@ const H1 = styled.h1`
   margin: 0;
   font-weight: 300;
   text-transform: uppercase;
-  ${media.fontSizing(2.5)}
+  line-height: 2;
+  ${media.fontSizing(2.8)}
 `;
 
 const H2 = styled.h2`

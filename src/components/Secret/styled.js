@@ -17,9 +17,6 @@ const SecretContainer = styled(Container)`
   box-shadow: ${props => props.theme.boxShadow};
 
   ${media.smallDesktop`
-    width: ${0.8 * 95}vw;
-  `}
-  ${media.tablet`
     width: ${95}vw;
   `}
   ${media.phone`

@@ -28,22 +28,33 @@ class App extends Component {
 
   componentDidMount() {
 
-    const desktopMaxWidth = window.matchMedia(`(min-width: ${theme.mediaSizes.desktop}px)`);
-    const tabletMaxWidth = window.matchMedia(`(min-width: ${theme.mediaSizes.tablet}px)`);
-    const phoneMaxWidth = window.matchMedia(`(min-width: ${theme.mediaSizes.phone}px)`);
-    const smallPhoneMaxWidth = window.matchMedia(`(min-width: ${theme.mediaSizes.smallPhone}px)`);
+    const desktopMaxWidth = window.matchMedia(`(max-width: ${theme.mediaSizes.desktop}px)`);
+    const tabletMaxWidth = window.matchMedia(`(max-width: ${theme.mediaSizes.tablet}px)`);
+    const phoneMaxWidth = window.matchMedia(`(max-width: ${theme.mediaSizes.phone}px)`);
+    const smallPhoneMaxWidth = window.matchMedia(`(max-width: ${theme.mediaSizes.smallPhone}px)`);
 
     const updatePegWidth = () => {
-      if (desktopMaxWidth.matches) {
-        this.setState({ pegWidth: theme.pegSizes.desktop });
-      } else if (tabletMaxWidth.matches) {
-        this.setState({ pegWidth: theme.pegSizes.tablet });
+      if (smallPhoneMaxWidth.matches) {
+        this.setState({ pegWidth: theme.pegSizes.smallPhone });
       } else if (phoneMaxWidth.matches) {
         this.setState({ pegWidth: theme.pegSizes.phone });
+      } else if (tabletMaxWidth.matches) {
+        this.setState({ pegWidth: theme.pegSizes.tablet });
       } else {
-        this.setState({ pegWidth: theme.pegSizes.smallPhone });
+        this.setState({ pegWidth: theme.pegSizes.desktop });
       }
     };
+    // const updatePegWidth = () => {
+    //   if (desktopMaxWidth.matches) {
+    //     this.setState({ pegWidth: theme.pegSizes.desktop });
+    //   } else if (tabletMaxWidth.matches) {
+    //     this.setState({ pegWidth: theme.pegSizes.tablet });
+    //   } else if (phoneMaxWidth.matches) {
+    //     this.setState({ pegWidth: theme.pegSizes.phone });
+    //   } else {
+    //     this.setState({ pegWidth: theme.pegSizes.smallPhone });
+    //   }
+    // };
 
     updatePegWidth();
 
@@ -60,10 +71,8 @@ class App extends Component {
   }
 
 
-  newGame(numPegs) {
-    if (!numPegs) {
-      numPegs = this.state.numPegs;
-    }
+  newGame = (numberOfPegs) => {
+    const numPegs = numberOfPegs || this.state.numPegs;
     const maxRounds = Math.floor(numPegs * 2.5);
 
     this.setState({
@@ -175,20 +184,23 @@ class App extends Component {
   }
 
   render() {
-    const { currentRoundId, rounds, colors, pegWidth, secretPegs, userWon, userLost } = this.state;
-    const { handleNewGuess, revealCodeAndEndGame } = this;
+    const { currentRoundId, rounds, colors, pegWidth, numPegs, secretPegs, userWon, userLost } = this.state;
+    const { newGame, handleNewGuess, revealCodeAndEndGame } = this;
     return (
       <ThemeProvider theme={theme}>
         <Grid>
           <GlobalStyle />
 
           <Header>
+
             <H1>Mastermind</H1>
+            <NewGame
+              newGame={newGame}
+              numPegs={numPegs}
+            />
+
           </Header>
 
-          <NewGame
-            newGame
-          />
 
           <Board
             currentRoundId={currentRoundId}

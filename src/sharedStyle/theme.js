@@ -31,10 +31,10 @@ theme.spacers = {
 
 theme.mediaSizes = {
   largDesktop: 1440,
-  smallDesktop: 1024,
+  smallDesktop: 1200,
   tablet: 768,
-  phone: 375,
-  smallPhone: 325,
+  phone: 576,
+  smallPhone: 375,
 };
 // theme.mediaSizes = {
 //   desktop: 992,
