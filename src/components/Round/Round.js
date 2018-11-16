@@ -16,7 +16,7 @@ class Round extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { secretPegs, guessPegs } = this.props;
+    const { secretPegs, guessPegs, isCurrentRound } = this.props;
     if (secretPegs !== prevProps.secretPegs) {
       const guessColors = new Array(guessPegs.length).fill('');
       this.setState({ guessColors });
@@ -32,7 +32,6 @@ class Round extends Component {
   }
 
   updatePegColor = (color, index) => {
-    console.log('change color', color, index);
     this.setState((state) => {
       const guessColors = [...state.guessColors];
       guessColors[index] = color;
@@ -46,7 +45,7 @@ class Round extends Component {
     const { showColorPicker, hideColorPicker, updatePegColor } = this;
 
     return (
-      <Container>
+      <Container isCurrentRound={isCurrentRound}>
         <RoundNum>{id}</RoundNum>
         <GuessPegs>
           {guessPegs.map((color, index) => (

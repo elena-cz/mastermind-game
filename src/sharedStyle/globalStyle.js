@@ -2,12 +2,13 @@ import { createGlobalStyle } from 'styled-components/macro';
 
 const globalStyle = createGlobalStyle`
   body {
-    background-color: white;
-    font-family: ${props => props.theme.typography.fontFamily};
-    margin: 0;
-    padding: 0;
     min-height: 100vh;
     width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-anchor: none;
+    background-color: white;
+    font-family: ${props => props.theme.typography.fontFamily};
   }
 
   button, input {

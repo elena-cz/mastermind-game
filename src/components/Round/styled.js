@@ -1,7 +1,9 @@
 import styled from 'styled-components/macro';
 import media from 'sharedStyle/utils/media';
 
-const Container = styled.div`
+const Container = styled.div.attrs({
+  id: props => props.isCurrentRound ? 'CurrentRound' : 'InactiveRound',
+})`
   display: flex;
   flex-direction: row;
   align-items: center;
