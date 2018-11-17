@@ -5,6 +5,7 @@ import GlobalStyle from 'sharedStyle/globalStyle';
 import { H1 } from 'sharedStyle/typography';
 import Board from 'components/Board';
 import NewGame from 'components/NewGame';
+import RulesInfo from 'components/RulesInfo';
 import GameResultBanner from 'components/GameResultBanner';
 
 import { Grid, Header, Sidebar, Footer } from './styled';
@@ -203,6 +204,7 @@ class App extends Component {
           />
 
           <Sidebar>
+            <RulesInfo />
           </Sidebar>
 
           <Footer />
