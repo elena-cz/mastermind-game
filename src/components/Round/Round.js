@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { OutlineButton } from 'sharedStyle/buttons';
 import CodePeg from 'components/CodePeg';
-import { Container, RoundNum, GuessPegs, KeyPegs, KeyPegContainer, KeyPeg } from './styled';
+import { Container, RoundNum, GuessPegs, KeyPegs, KeyPegContainer, KeyPeg, SubmitButton } from './styled';
 
 
 class Round extends Component {
@@ -65,9 +64,11 @@ class Round extends Component {
 
         <KeyPegs pegWidth={pegWidth}>
           {isCurrentRound ? (
-            <OutlineButton onClick={() => handleNewGuess(guessColors)}>
+            <SubmitButton
+              onClick={() => handleNewGuess(guessColors)}
+            >
               Submit
-            </OutlineButton>
+            </SubmitButton>
           ) : (
             keyPegs.map((peg, index) => (
               <KeyPegContainer

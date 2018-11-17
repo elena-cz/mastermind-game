@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { H2, H3 } from 'sharedStyle/typography';
 import {
   Container,
   RulesButtonContainer,
@@ -29,7 +30,7 @@ class RulesInfo extends Component {
 
         <div>
 
-          <h2>
+          <H2>
             <RulesButtonContainer
               isRulesExpanded={isRulesExpanded}
               onClick={() => this.toggleRulesDisplay()}
@@ -42,7 +43,7 @@ class RulesInfo extends Component {
               </RulesHeading>
 
             </RulesButtonContainer>
-          </h2>
+          </H2>
 
           <RulesTextContainer
             hidden={!isRulesExpanded}

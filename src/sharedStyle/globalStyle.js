@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components/macro';
 
 const globalStyle = createGlobalStyle`
+  html { 
+    font-size: calc(0.85em + 0.08vw); 
+  }
+
   body {
     min-height: 100vh;
     width: 100vw;
@@ -12,11 +16,12 @@ const globalStyle = createGlobalStyle`
   }
 
   button, input {
-    font-family: ${props => props.theme.typography.fontFamily};
-    cursor: pointer;
     padding: 0;
     margin: 0;
     outline:0;
+    font-family: ${props => props.theme.typography.fontFamily};
+    font-size: inherit;
+    cursor: pointer;
 
     &:disabled {
       cursor: auto;

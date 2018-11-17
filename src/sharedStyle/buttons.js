@@ -2,12 +2,12 @@ import styled from 'styled-components/macro';
 import media from 'sharedStyle/utils/media';
 
 const PrimaryButton = styled.button`
-  padding: 0.25rem 1rem;
+  padding: 0.25em 1em;
   background-color: ${props => props.theme.colors.black};
   border: 1px solid ${props => props.theme.colors.black};
-  border-radius: 1rem;
-  font-size: 1.3rem;
-  line-height: 1.3rem;
+  border-radius: 1em;
+  font-size: 1.3em;
+  line-height: 1.3em;
   text-transform: uppercase;
   color: white;
 
@@ -15,27 +15,26 @@ const PrimaryButton = styled.button`
     color: ${props => props.theme.colors.lightPrimary};
   }
 
-  ${media.tablet`
-    font-size: 1.1rem;
-    line-height: 1.1rem;
-    padding: 0.25rem 1rem;
-  `}
-  ${media.phone`
-    font-size: 1rem;
-    line-height: 1rem;
-    padding: 0.25rem 0.5rem;
-  `}
 `;
+  // ${media.tablet`
+  //   font-size: 1.1em;
+  //   line-height: 1.1em;
+  //   padding: 0.25em 1em;
+  // `}
+  // ${media.phone`
+  //   font-size: 1em;
+  //   line-height: 1em;
+  //   padding: 0.25em 0.5em;
+  // `}
 
 
 const OutlineButton = styled.button`
-  padding: 0.25rem 1rem;
+  padding: 0.25em 1em;
   background-color: white;
   box-sizing: border-box;
   border: 1px solid ${props => props.theme.colors.black};
-  border-radius: 1rem;
-  font-size: 1.2rem;
-  line-height: 1.2rem;
+  border-radius: 1em;
+  font-size: 1.2em;
   text-transform: uppercase;
   color: ${props => props.theme.colors.black};
 
@@ -43,35 +42,39 @@ const OutlineButton = styled.button`
     background-color: ${props => props.theme.colors.lightPrimary};
   }
 
-  ${media.tablet`
-    font-size: 1rem;
-    line-height: 1rem;
-    padding: 0.25rem 0.5rem;
-  `}
-  ${media.phone`
-    font-size: 0.8rem;
-    line-height: 0.8rem;
-    padding: 0.25rem 0.3rem;
-  `}
-  ${media.smallPhone`
-    font-size: 0.7rem;
-    line-height: 0.7rem;
-    padding: 0.25rem 0.3rem;
-  `}
 `;
+  // ${media.phone`
+  //   font-size: 0.8em;
+  //   padding: 0.25em 0.3em;
+  // `}
+  // ${media.tablet`
+  //   font-size: 1em;
+  //   line-height: 1em;
+  //   padding: 0.25em 0.5em;
+  // `}
+  // ${media.phone`
+  //   font-size: 0.8em;
+  //   line-height: 0.8em;
+  //   padding: 0.25em 0.3em;
+  // `}
+  // ${media.smallPhone`
+  //   font-size: 0.7em;
+  //   line-height: 0.7em;
+  //   padding: 0.25em 0.3em;
+  // `}
 
 
 const RoundButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 1.8rem;
-  width: 1.8rem;
-  padding: 0.25rem .25rem;
+  height: 1.8em;
+  width: 1.8em;
+  padding: 0.25em .25em;
   background-color: ${props => props.theme.colors.white};
   border: 1px solid ${props => props.theme.colors.black};
   border-radius: 50%;
-  font-size: 1.3rem;
+  font-size: 1.3em;
   line-height: 1;
   text-transform: uppercase;
   text-align: center;
@@ -81,17 +84,17 @@ const RoundButton = styled.button`
     background-color: ${props => props.theme.colors.lightPrimary};
   }
 
-  ${media.tablet`
-    height: 1.6rem;
-    width: 1.6rem;
-    font-size: 1.1rem;
-  `}
-  ${media.phone`
-    height: 1.5rem;
-    width: 1.5rem;
-    font-size: 1rem;
-  `}
 `;
+  // ${media.tablet`
+  //   height: 1.6em;
+  //   width: 1.6em;
+  //   font-size: 1.1em;
+  // `}
+  // ${media.phone`
+  //   height: 1.5em;
+  //   width: 1.5em;
+  //   font-size: 1em;
+  // `}
 
 
 export { PrimaryButton, OutlineButton, RoundButton };

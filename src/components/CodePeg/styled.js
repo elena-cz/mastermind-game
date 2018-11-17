@@ -14,14 +14,14 @@ const PegContainer = styled.div`
   min-height: ${props => props.pegWidth}px;
   min-width: ${props => props.pegWidth}px;
   margin: 0 ${props => props.theme.spacers.lg} 0 0;
-
-  ${media.tablet`
-    margin: 0 ${props => props.theme.spacers.lg} 0 0;
-  `}
-  ${media.phone`
-    margin: 0 ${props => props.theme.spacers.md} 0 0;
-  `}
 `;
+
+  // ${media.tablet`
+  //   margin: 0 ${props => props.theme.spacers.lg} 0 0;
+  // `}
+  // ${media.phone`
+  //   margin: 0 ${props => props.theme.spacers.md} 0 0;
+  // `}
 
 const Peg = styled.button`
   background-color: ${props => props.theme.colors[props.color || 'mediumGray']};

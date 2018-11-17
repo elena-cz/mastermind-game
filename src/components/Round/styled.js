@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro';
 import media from 'sharedStyle/utils/media';
+import { OutlineButton } from 'sharedStyle/buttons';
 
 const Container = styled.div.attrs({
   id: props => props.isCurrentRound ? 'CurrentRound' : 'InactiveRound',
@@ -8,15 +9,16 @@ const Container = styled.div.attrs({
   flex-direction: row;
   align-items: center;
   justify-content: stretch;
+  min-height: 1.7em;
   padding: ${props => props.theme.spacers.md} 0;
-
-  ${media.tablet`
-    padding: ${props => props.theme.spacers.md} 0;
-  `}
-  ${media.phone`
-    padding: ${props => props.theme.spacers.sm} 0;
-  `}
 `;
+
+  // ${media.tablet`
+  //   padding: ${props => props.theme.spacers.md} 0;
+  // `}
+  // ${media.phone`
+  //   padding: ${props => props.theme.spacers.sm} 0;
+  // `}
 
 const RoundNum = styled.p`
   min-width: 1.2em;
@@ -24,17 +26,17 @@ const RoundNum = styled.p`
   text-align: center;
   color: ${props => props.theme.colors.mediumGray};
 
-  ${media.tablet`
-    width: 1.2em;
-    margin: 0 ${props => props.theme.spacers.lg} 0 0;
-    font-size: 1em;
-  `}
-  ${media.phone`
-    min-width: 1em;
-    margin: 0 ${props => props.theme.spacers.md} 0 0;
-    font-size: 0.8em;
-  `}
 `;
+  // ${media.tablet`
+  //   width: 1.2em;
+  //   margin: 0 ${props => props.theme.spacers.lg} 0 0;
+  //   font-size: 1em;
+  // `}
+  // ${media.phone`
+  //   min-width: 1em;
+  //   margin: 0 ${props => props.theme.spacers.md} 0 0;
+  //   font-size: 0.8em;
+  // `}
 
 const GuessPegs = styled.div`
   display: flex;
@@ -49,15 +51,15 @@ const KeyPegs = styled.div`
   align-items: center;
   justify-content: space-between;
   height: ${props => props.pegWidth}px;
-  width: 7em;
+  min-width: 6em;
 
-  ${media.tablet`
-    width: 5.5em;
-  `}
-  ${media.phone`
-    width: 4em;
-  `}
 `;
+  // ${media.tablet`
+  //   width: 5.5em;
+  // `}
+  // ${media.phone`
+  //   width: 4em;
+  // `}
 
 
 const KeyPegContainer = styled.div`
@@ -80,5 +82,8 @@ const KeyPeg = styled.div`
   border-color: ${props => props.theme.black};
 `;
 
+const SubmitButton = styled(OutlineButton)`
+  justify-self: center;
+`;
 
-export { Container, RoundNum, GuessPegs, KeyPegs, KeyPegContainer, KeyPeg };
+export { Container, RoundNum, GuessPegs, KeyPegs, KeyPegContainer, KeyPeg, SubmitButton };

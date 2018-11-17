@@ -18,16 +18,16 @@ const RulesButtonContainer = styled.button.attrs({
   margin: 0;
   background-color: transparent;
   border: none;
-  font-weight: 300;
-  font-size: 2.2rem;
-  text-transform: uppercase;
-  ${media.tablet`
-    font-size: 1.8rem;
-  `}
-  ${media.phone`
-    font-size: 1.3rem;
-  `}
+  font-weight: inherit;
+  text-transform: inherit;
 `;
+  // font-size: 2.2rem;
+  // ${media.tablet`
+  //   font-size: 1.8rem;
+  // `}
+  // ${media.phone`
+  //   font-size: 1.3rem;
+  // `}
 
 const RulesHeading = styled.span`
   margin-left: 0.5rem;
@@ -49,26 +49,26 @@ const ExpandIcon = styled.div.attrs({
   transform-origin: center;
   transition: transform 0.2s;
 
-  ${media.tablet`
-    width: 1.8em;
-    height: 1.8em;
-  `}
-  ${media.phone`
-    width: 1.3em;
-    height: 1.3em;
-  `}
 `;
+  // ${media.tablet`
+  //   width: 1.8em;
+  //   height: 1.8em;
+  // `}
+  // ${media.phone`
+  //   width: 1.3em;
+  //   height: 1.3em;
+  // `}
 
 const RulesTextContainer = styled.div.attrs({
 })`
   padding-left: 2.7rem;
-  ${media.tablet`
-    padding-left: 2.3rem;
-  `}
-  ${media.phone`
-    padding-left: 1.8rem;
-  `}
 `;
+  // ${media.tablet`
+  //   padding-left: 2.3rem;
+  // `}
+  // ${media.phone`
+  //   padding-left: 1.8rem;
+  // `}
 
 
 export { Container, RulesHeading, RulesButtonContainer, ExpandIcon, RulesTextContainer };

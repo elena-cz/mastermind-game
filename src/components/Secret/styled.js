@@ -70,8 +70,8 @@ const RevealContainer = styled.div`
 const RevealIconButton = styled.button.attrs({
   'aria-labelledby': 'reveal-icon-tooltip',
 })`
-  width: 2em;
-  height: 2em;
+  width: 1.5em;
+  height: 1.5em;
   margin-left: ${props => props.theme.spacers.sm};
   background-image: url(${visibilityIcon});
   background-size: contain;
@@ -79,15 +79,15 @@ const RevealIconButton = styled.button.attrs({
   background-color: transparent;
   border: none;
 
-  ${media.tablet`
-    width: 1.6em;
-    height: 1.6em;
-  `}
-  ${media.phone`
-    width: 1.2em;
-    height: 1.2em;
-  `}
 `;
+  // ${media.tablet`
+  //   width: 1.6em;
+  //   height: 1.6em;
+  // `}
+  // ${media.phone`
+  //   width: 1.2em;
+  //   height: 1.2em;
+  // `}
 
 const RevealTooltip = styled.div.attrs({
   role: 'tooltip',
