@@ -53,12 +53,12 @@ const KeyPegs = styled.div`
   height: ${props => props.pegWidth}px;
   min-width: 6em;
 
+  ${media.phone`
+    min-width: 4em;
+  `}
 `;
   // ${media.tablet`
   //   width: 5.5em;
-  // `}
-  // ${media.phone`
-  //   width: 4em;
   // `}
 
 

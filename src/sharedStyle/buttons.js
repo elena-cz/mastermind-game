@@ -42,6 +42,10 @@ const OutlineButton = styled.button`
     background-color: ${props => props.theme.colors.lightPrimary};
   }
 
+    ${media.phone`
+      font-size: 1em;
+      padding: 0.25em 0.5em;
+    `}
 `;
   // ${media.phone`
   //   font-size: 0.8em;
