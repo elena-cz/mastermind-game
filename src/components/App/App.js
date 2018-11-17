@@ -62,7 +62,8 @@ class App extends Component {
 
 
   newGame = (numPegs) => {
-    const maxRounds = Math.floor(numPegs * 2.5);
+
+    const maxRounds = numPegs * 2;
 
     this.setState({
       numPegs,
@@ -173,7 +174,7 @@ class App extends Component {
   }
 
   render() {
-    const { currentRoundId, rounds, colors, pegWidth, numPegs, secretPegs, userWon, userLost } = this.state;
+    const { currentRoundId, maxRounds, rounds, colors, pegWidth, numPegs, secretPegs, userWon, userLost } = this.state;
     const { newGame, handleNewGuess, revealCodeAndEndGame } = this;
     return (
       <ThemeProvider theme={theme}>
@@ -204,7 +205,7 @@ class App extends Component {
           />
 
           <Sidebar>
-            <RulesInfo />
+            <RulesInfo maxRounds={maxRounds} />
           </Sidebar>
 
           <Footer />

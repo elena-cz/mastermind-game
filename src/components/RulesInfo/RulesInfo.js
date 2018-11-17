@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { H2, H3, H4, P, Small, Semibold, Ul, Li } from 'sharedStyle/typography';
 import {
   Container,
@@ -9,8 +10,12 @@ import {
   Table,
   Th,
   Td,
-  Blue,
+  Red,
+  Orange,
+  Yellow,
   Green,
+  Blue,
+  Purple,
 } from './styled';
 
 
@@ -29,7 +34,9 @@ class RulesInfo extends Component {
   }
 
   render() {
+    const { maxRounds } = this.props;
     const { isRulesExpanded } = this.state;
+
     return (
       <Container>
 
@@ -55,11 +62,19 @@ class RulesInfo extends Component {
             isRulesExpanded={isRulesExpanded}
           >
 
-            <P><Semibold>You have 15 rounds to guess the secret code</Semibold></P>
+            <P><Semibold>You have {maxRounds} rounds to guess the secret code</Semibold></P>
 
             <H3>1. Guess</H3>
 
-            <P>Choose a color for each peg in the current round</P>
+            <P>
+              Choose a color for each peg in the current round &nbsp;
+              <Red>&#11044;</Red>
+              <Orange>&#11044;</Orange>
+              <Yellow>&#11044;</Yellow>
+              <Green>&#11044;</Green>
+              <Blue>&#11044;</Blue>
+              <Purple>&#11044;</Purple>
+            </P>
 
             <H3>2. Decipher clues</H3>
 
@@ -125,8 +140,9 @@ class RulesInfo extends Component {
   }
 
 }
-              // <Li>&#9679; for 1st blue in the correct position</Li>
-              // <Li>&#9675; for green, the correct color, but the wrong position.</Li>
-              // <Li>&#9675; for one of the other blues in the wrong position.</Li>
+
+RulesInfo.propTypes = {
+  maxRounds: PropTypes.number.isRequired,
+};
 
 export default RulesInfo;

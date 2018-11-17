@@ -65,12 +65,28 @@ const Td = styled.td`
   text-align: center;
 `;
 
-const Blue = styled.span`
-  color: ${props => props.theme.colors.blue};
+const Red = styled.span`
+  color: ${props => props.theme.colors.red};
+`;
+
+const Orange = styled.span`
+  color: ${props => props.theme.colors.orange};
+`;
+
+const Yellow = styled.span`
+  color: ${props => props.theme.colors.yellow};
 `;
 
 const Green = styled.span`
   color: ${props => props.theme.colors.green};
+`;
+
+const Blue = styled.span`
+  color: ${props => props.theme.colors.blue};
+`;
+
+const Purple = styled.span`
+  color: ${props => props.theme.colors.purple};
 `;
 
 
@@ -83,6 +99,10 @@ export {
   Table,
   Th,
   Td,
-  Blue,
+  Red,
+  Orange,
+  Yellow,
   Green,
+  Blue,
+  Purple,
 };
