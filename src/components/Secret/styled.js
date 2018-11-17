@@ -75,6 +75,7 @@ const RevealIconButton = styled.button.attrs({
   margin-left: ${props => props.theme.spacers.sm};
   background-image: url(${visibilityIcon});
   background-size: contain;
+  background-repeat: no-repeat;
   background-color: transparent;
   border: none;
 

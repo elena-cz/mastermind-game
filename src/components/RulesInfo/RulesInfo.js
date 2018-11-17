@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {
   Container,
-  RulesHeading,
   RulesButtonContainer,
+  RulesHeading,
   ExpandIcon,
   RulesTextContainer,
 } from './styled';
@@ -34,15 +34,23 @@ class RulesInfo extends Component {
               isRulesExpanded={isRulesExpanded}
               onClick={() => this.toggleRulesDisplay()}
             >
-              Rules
+
               <ExpandIcon isRulesExpanded={isRulesExpanded} />
+
+              <RulesHeading>
+                Rules
+              </RulesHeading>
+
             </RulesButtonContainer>
           </h2>
 
-          <RulesTextContainer hidden={!isRulesExpanded}>
+          <RulesTextContainer
+            hidden={!isRulesExpanded}
+            isRulesExpanded={isRulesExpanded}
+          >
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo purus quis mi cursus hendrerit eu eu metus. Aliquam aliquam arcu eget aliquet scelerisque. Pellentesque sodales turpis vitae venenatis vehicula. Ut id porta velit. Ut eu dignissim dui, quis gravida est. Cras quis venenatis mauris, a bibendum enim. Sed at augue libero. Nullam tortor metus, tincidunt ut urna id, posuere placerat orci. Ut quis risus dictum risus facilisis imperdiet quis sed eros.</p>
           </RulesTextContainer>
-         </div> 
+         </div>
 
       </Container>
     );
