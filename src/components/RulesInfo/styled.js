@@ -21,13 +21,7 @@ const RulesButtonContainer = styled.button.attrs({
   font-weight: inherit;
   text-transform: inherit;
 `;
-  // font-size: 2.2rem;
-  // ${media.tablet`
-  //   font-size: 1.8rem;
-  // `}
-  // ${media.phone`
-  //   font-size: 1.3rem;
-  // `}
+
 
 const RulesHeading = styled.span`
   margin-left: 0.5rem;
@@ -38,8 +32,8 @@ const ExpandIcon = styled.div.attrs({
   focusable: 'false',
 })`
   display: inline-block;
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 2rem;
+  height: 2rem;
   background-image: url(${expandIcon});
   background-repeat: no-repeat;
   background-size: contain;
@@ -50,25 +44,45 @@ const ExpandIcon = styled.div.attrs({
   transition: transform 0.2s;
 
 `;
-  // ${media.tablet`
-  //   width: 1.8em;
-  //   height: 1.8em;
-  // `}
-  // ${media.phone`
-  //   width: 1.3em;
-  //   height: 1.3em;
-  // `}
 
 const RulesTextContainer = styled.div.attrs({
 })`
-  padding-left: 2.7rem;
+  padding-top: 1em;
+  padding-left: 2rem;
 `;
-  // ${media.tablet`
-  //   padding-left: 2.3rem;
-  // `}
-  // ${media.phone`
-  //   padding-left: 1.8rem;
-  // `}
+
+const Table = styled.table`
+  border: none;
+`;
+
+const Th = styled.th`
+  padding-right: ${props => props.theme.spacers.sm};
+  font-weight: 400;
+  text-align: left;
+`;
+
+const Td = styled.td`
+  text-align: center;
+`;
+
+const Blue = styled.span`
+  color: ${props => props.theme.colors.blue};
+`;
+
+const Green = styled.span`
+  color: ${props => props.theme.colors.green};
+`;
 
 
-export { Container, RulesHeading, RulesButtonContainer, ExpandIcon, RulesTextContainer };
+export {
+  Container,
+  RulesHeading,
+  RulesButtonContainer,
+  ExpandIcon,
+  RulesTextContainer,
+  Table,
+  Th,
+  Td,
+  Blue,
+  Green,
+};

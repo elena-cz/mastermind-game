@@ -7,7 +7,7 @@ theme.colors = {
   white: '#ffffff',
   lightGray: '#fafafa',
   mediumGray: '#9e9e9e',
-  darkGray: '##424242',
+  darkGray: '#424242',
   black: '#000000',
   red: '#e53935',
   orange: '#fb8c00',
