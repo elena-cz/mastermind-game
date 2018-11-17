@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro';
-import media from 'sharedStyle/utils/media';
 import { PrimaryButton, RoundButton } from 'sharedStyle/buttons';
 
 

@@ -23,10 +23,10 @@ theme.typography = {
 };
 
 theme.spacers = {
-  xs: '.25em',
-  sm: '.5em',
-  md: '1em',
-  lg: '2em',
+  xs: '.25rem',
+  sm: '.5rem',
+  md: '1rem',
+  lg: '2rem',
 };
 
 theme.mediaSizes = {
