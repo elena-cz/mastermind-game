@@ -29,26 +29,36 @@ class App extends Component {
 
   componentDidMount() {
 
-    const desktopMaxWidth = window.matchMedia(`(max-width: ${theme.mediaSizes.desktop}px)`);
+    const largeDesktopMaxWidth = window.matchMedia(`(max-width: ${theme.mediaSizes.largeDesktop}px)`);
+    const smallDesktopMaxWidth = window.matchMedia(`(max-width: ${theme.mediaSizes.smallDesktop}px)`);
     const tabletMaxWidth = window.matchMedia(`(max-width: ${theme.mediaSizes.tablet}px)`);
     const phoneMaxWidth = window.matchMedia(`(max-width: ${theme.mediaSizes.phone}px)`);
     const smallPhoneMaxWidth = window.matchMedia(`(max-width: ${theme.mediaSizes.smallPhone}px)`);
 
     const updatePegWidth = () => {
       if (smallPhoneMaxWidth.matches) {
-        this.setState({ pegWidth: theme.pegSizes.smallPhone });
+        // this.setState({ pegWidth: theme.pegSizes.smallPhone });
+        this.setState({ pegWidth: Math.floor(window.innerWidth / 18) });
       } else if (phoneMaxWidth.matches) {
-        this.setState({ pegWidth: theme.pegSizes.phone });
+        // this.setState({ pegWidth: theme.pegSizes.phone });
+        this.setState({ pegWidth: Math.floor(window.innerWidth / 16) });
       } else if (tabletMaxWidth.matches) {
-        this.setState({ pegWidth: theme.pegSizes.tablet });
+        // this.setState({ pegWidth: theme.pegSizes.tablet });
+        this.setState({ pegWidth: Math.floor((window.innerWidth * 0.95) / 16) });
+      } else if (smallDesktopMaxWidth.matches) {
+        // this.setState({ pegWidth: theme.pegSizes.tablet });
+        this.setState({ pegWidth: Math.floor((window.innerWidth * 0.95) / 16) });
       } else {
-        this.setState({ pegWidth: theme.pegSizes.desktop });
+        // this.setState({ pegWidth: theme.pegSizes.desktop });
+        this.setState({ pegWidth: Math.floor((window.innerWidth * 0.8 * 0.7) / 18) });
+        
       }
     };
 
     updatePegWidth();
 
-    desktopMaxWidth.addListener(updatePegWidth);
+    largeDesktopMaxWidth.addListener(updatePegWidth);
+    smallDesktopMaxWidth.addListener(updatePegWidth);
     tabletMaxWidth.addListener(updatePegWidth);
     phoneMaxWidth.addListener(updatePegWidth);
     smallPhoneMaxWidth.addListener(updatePegWidth);

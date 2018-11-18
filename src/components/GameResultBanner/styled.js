@@ -79,6 +79,7 @@ const Banner = styled(H2)`
   margin: ${props => props.theme.spacers.sm};
   background-color: ${props => props.theme.colors.white};
   border: 1px solid ${props => props.userWon ? props.theme.colors.primary : props.theme.colors.red};
+  border-radius: 0.5em;
   color: ${props => props.userWon ? props.theme.colors.primary : props.theme.colors.red};
   ${props => props.showBanner ? animation : ''}
 

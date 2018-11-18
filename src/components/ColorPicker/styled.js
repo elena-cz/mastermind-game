@@ -23,13 +23,13 @@ const Container = styled.div`
   visibility: ${props => props.isVisible ? 'visible' : 'hidden'};
   position: absolute;
   bottom: ${props => props.pegRadius}px;
-  left: -${props => props.viewBoxWidth / 2 - props.pegRadius}px;
   height: ${props => props.viewBoxHeight}px;
   width: ${props => props.viewBoxWidth}px;
   z-index: 100;
   opacity: ${props => props.isVisible ? 1 : 0.8};
   transition: visibility 0s 0s, opacity .2s ease-in-out;
 `;
+  // left: -${props => props.viewBoxWidth / 2 - props.pegRadius}px;
 
 const ViewBox = styled.svg.attrs({
   viewBox: props => props.viewBox,

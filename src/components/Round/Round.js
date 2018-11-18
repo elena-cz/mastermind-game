@@ -44,7 +44,7 @@ class Round extends Component {
     const { showColorPicker, hideColorPicker, updatePegColor } = this;
 
     return (
-      <Container isCurrentRound={isCurrentRound}>
+      <Container pegWidth={pegWidth}>
         <RoundNum>{id}</RoundNum>
         <GuessPegs>
           {guessPegs.map((color, index) => (
@@ -66,6 +66,7 @@ class Round extends Component {
           {isCurrentRound ? (
             <SubmitButton
               onClick={() => handleNewGuess(guessColors)}
+              pegWidth={pegWidth}
             >
               Submit
             </SubmitButton>

@@ -132,7 +132,7 @@ class RulesInfo extends Component {
                 <Small>* Will be in random order</Small>
               </Li>
 
-              <Li>No peg for last blue guess, only 2 blue pegs in the secret code</Li>
+              <Li>No peg for the last blue guess, only 2 blue pegs in the secret code</Li>
               <Li>No indication that there's another green in the secret code</Li>
             </Ul>
 

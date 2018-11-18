@@ -30,16 +30,33 @@ theme.spacers = {
 };
 
 theme.mediaSizes = {
-  largDesktop: 1440,
+  largeDesktop: 1440,
   smallDesktop: 1200,
   tablet: 768,
   phone: 576,
   smallPhone: 375,
 };
+
+theme.grid = {
+  largeDesktop: { vw: 80, percent: 70 },
+  smallDesktop: { vw: 95, percent: 100 },
+  phone: { vw: 100, percent: 100 },
+};
 // theme.mediaSizes = {
 //   desktop: 992,
 //   tablet: 768,
 //   phone: 576,
+// };
+
+// theme.pegSizes = {
+//   desktop: () => { 
+//     const width = Math.floor((window.innerWidth * 0.8 * 0.7) / 18);
+//     console.log('DESKTOP WIDTH', width);
+//     return width;
+//   },
+//   tablet: 36,
+//   phone: 20,
+//   smallPhone: 16,
 // };
 
 theme.pegSizes = {
@@ -50,6 +67,5 @@ theme.pegSizes = {
 };
 
 theme.boxShadow = '1px 2px 4px #bdbdbd';
-
 
 export default theme;

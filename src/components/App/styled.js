@@ -3,7 +3,7 @@ import media from 'sharedStyle/utils/media';
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 70% auto;
+  grid-template-columns: ${props => props.theme.grid.largeDesktop.percent}% auto;
   grid-template-rows: auto auto;
   grid-template-areas: 
     "header header"
@@ -11,29 +11,29 @@ const Grid = styled.div`
   grid-gap: ${props => props.theme.spacers.lg};
   align-content: start;
   min-height: 100vh;
-  width: 80vw;
+  width: ${props => props.theme.grid.largeDesktop.vw}vw;
   margin: 0 auto 0 auto;
   padding-bottom: 6em;
 
   ${media.smallDesktop`
-    grid-template-columns: 100%;
+    grid-template-columns: ${props => props.theme.grid.smallDesktop.percent}%;
     grid-template-rows: auto auto auto auto;
     grid-template-areas: 
       "header"
       "board"
       "sidebar";
     grid-gap: ${props => props.theme.spacers.md};
-    width: 95vw;
+    width: ${props => props.theme.grid.smallDesktop.vw}vw;
   `}
   ${media.phone`
-    grid-template-columns: 100%;
+    grid-template-columns: ${props => props.theme.grid.phone.percent}%;
     grid-template-rows: auto auto auto auto;
     grid-template-areas: 
       "header"      
       "board"
       "sidebar";
     grid-gap: ${props => props.theme.spacers.sm};
-    width: 100vw;
+    width: ${props => props.theme.grid.phone.vw}vw;
   `}
 `;
 

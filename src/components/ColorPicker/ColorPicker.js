@@ -5,14 +5,14 @@ import { Container, ViewBox, CurvePath, ColorDot } from './styled';
 function ColorPicker({ isVisible, colors, updatePegColor, pegIndex, pegWidth }) {
 
   const pegRadius = Math.round(pegWidth / 2);
-  const pathRadius = 1.75 * pegRadius;
-  const strokeWidth = 1.2 * pegRadius;
-  const colorDotWidth = Math.round(pegWidth / 3);
+  const pathRadius = 2.5 * pegRadius;
+  const strokeWidth = Math.round(1.3 * pegRadius);
+  const colorDotWidth = Math.round(pegWidth / 2.3);
 
   const viewBoxWidth = 2 * pathRadius + strokeWidth;
   const viewBoxHeight = pathRadius + (strokeWidth / 2);
 
-  const angleInDeg = 20;
+  const angleInDeg = 25;
   const convertToRadians = angle => angle * (Math.PI / 180);
   const movePathXDistance = pathRadius - (Math.sin(convertToRadians(180 - 90 - angleInDeg)) * pathRadius);
   const movePathYDistance = Math.sin(convertToRadians(angleInDeg)) * pathRadius;

@@ -27,7 +27,7 @@ class Secret extends Component {
   render() {
     const { secretPegs, userWon, userLost, pegWidth, revealCodeAndEndGame } = this.props;
     return (
-      <SecretContainer>
+      <SecretContainer pegWidth={pegWidth}>
 
         <Cover
           userWon={userWon}

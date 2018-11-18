@@ -99,6 +99,7 @@ const RevealTooltip = styled.div.attrs({
   color: ${props => props.theme.colors.black};
   box-shadow: ${props => props.theme.boxShadow}; 
   font-size: 0.8em;
+  z-index: 500;
 
   ${RevealContainer}:hover & {
     display: block;

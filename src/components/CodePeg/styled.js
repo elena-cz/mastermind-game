@@ -5,6 +5,8 @@ import media from 'sharedStyle/utils/media';
 const Container = styled.div`
   position: relative;
   display: inline-block;
+  display: flex;
+  justify-content: center;
 `;
 
 const PegContainer = styled.div`
@@ -13,20 +15,14 @@ const PegContainer = styled.div`
   justify-content: center;
   min-height: ${props => props.pegWidth}px;
   min-width: ${props => props.pegWidth}px;
-  margin: 0 ${props => props.theme.spacers.lg} 0 0;
-  ${media.tablet`
-    margin: 0 ${props => props.theme.spacers.lg} 0 0;
-  `}
-  ${media.phone`
-    margin: 0 ${props => props.theme.spacers.md} 0 0;
-  `}
+  margin: 0 ${props => Math.floor(props.pegWidth / 2)}px;
 `;
 
 
 const Peg = styled.button`
   background-color: ${props => props.theme.colors[props.color || 'mediumGray']};
-  min-height: ${props => props.color ? props.pegWidth : props.pegWidth / 2}px;
-  min-width: ${props => props.color ? props.pegWidth : props.pegWidth / 2}px;
+  min-height: ${props => props.color ? props.pegWidth : Math.floor(props.pegWidth / 2)}px;
+  min-width: ${props => props.color ? props.pegWidth : Math.floor(props.pegWidth / 2)}px;
   border-radius: 50%;
   border: none;
 `;
