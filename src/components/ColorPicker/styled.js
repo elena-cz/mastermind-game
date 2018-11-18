@@ -19,17 +19,17 @@ import styled from 'styled-components/macro';
 // const path = `M ${pathStartX} ${pathStartY} A ${pathRadius} ${pathRadius} 0 0 1 ${pathEndX} ${pathEndY}`;
 
 
+  // visibility: ${props => props.isVisible ? 'visible' : 'hidden'};
 const Container = styled.div`
-  visibility: ${props => props.isVisible ? 'visible' : 'hidden'};
+  display: ${props => props.isVisible ? 'block' : 'none'};
   position: absolute;
   bottom: ${props => props.pegRadius}px;
   height: ${props => props.viewBoxHeight}px;
   width: ${props => props.viewBoxWidth}px;
   z-index: 100;
-  opacity: ${props => props.isVisible ? 1 : 0.8};
-  transition: visibility 0s 0s, opacity .2s ease-in-out;
 `;
-  // left: -${props => props.viewBoxWidth / 2 - props.pegRadius}px;
+  // opacity: ${props => props.isVisible ? 1 : 0.8};
+  // transition: visibility 0s 0s, opacity .2s ease-in-out;
 
 const ViewBox = styled.svg.attrs({
   viewBox: props => props.viewBox,
