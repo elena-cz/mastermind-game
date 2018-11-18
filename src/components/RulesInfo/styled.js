@@ -3,17 +3,13 @@ import media from 'sharedStyle/utils/media';
 import expandIcon from 'assets/expand-less-icon.svg';
 
 
-const Container = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  height: 100%;
+const Zippy = styled.section`
+  padding-bottom: ${props => props.theme.spacers.md};
 `;
 
 
-const RulesButtonContainer = styled.button.attrs({
-  'aria-expanded': props => props.isRulesExpanded ? 'true' : 'false',
+const ZippyButtonContainer = styled.button.attrs({
+  'aria-expanded': props => props.isExpanded ? 'true' : 'false',
 })`
   margin: 0;
   background-color: transparent;
@@ -23,7 +19,7 @@ const RulesButtonContainer = styled.button.attrs({
 `;
 
 
-const RulesHeading = styled.span`
+const ZippyHeading = styled.span`
   margin-left: 0.5rem;
 `;
 
@@ -39,13 +35,13 @@ const ExpandIcon = styled.div.attrs({
   background-size: contain;
   background-color: transparent;
   background-position: center; 
-  transform: rotate(${props => props.isRulesExpanded ? '0' : '180'}deg);
+  transform: rotate(${props => props.isExpanded ? '0' : '180'}deg);
   transform-origin: center;
   transition: transform 0.2s;
 
 `;
 
-const RulesTextContainer = styled.div.attrs({
+const ZippyTextContainer = styled.div.attrs({
 })`
   padding-top: 1em;
   padding-left: 2rem;
@@ -91,11 +87,11 @@ const Purple = styled.span`
 
 
 export {
-  Container,
-  RulesHeading,
-  RulesButtonContainer,
+  Zippy,
+  ZippyHeading,
+  ZippyButtonContainer,
   ExpandIcon,
-  RulesTextContainer,
+  ZippyTextContainer,
   Table,
   Th,
   Td,

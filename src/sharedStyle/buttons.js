@@ -15,16 +15,16 @@ const PrimaryButton = styled.button`
     color: ${props => props.theme.colors.lightPrimary};
   }
 
+  ${media.phone`
+    font-size: 1.1em;
+    line-height: 1em;
+    padding: 0.25em 0.5em;
+  `}
 `;
   // ${media.tablet`
   //   font-size: 1.1em;
   //   line-height: 1.1em;
   //   padding: 0.25em 1em;
-  // `}
-  // ${media.phone`
-  //   font-size: 1em;
-  //   line-height: 1em;
-  //   padding: 0.25em 0.5em;
   // `}
 
 
@@ -88,16 +88,16 @@ const RoundButton = styled.button`
     background-color: ${props => props.theme.colors.lightPrimary};
   }
 
+  ${media.phone`
+    height: 1.6em;
+    width: 1.6em;
+    font-size: 1.1em;
+  `}
 `;
   // ${media.tablet`
   //   height: 1.6em;
   //   width: 1.6em;
   //   font-size: 1.1em;
-  // `}
-  // ${media.phone`
-  //   height: 1.5em;
-  //   width: 1.5em;
-  //   font-size: 1em;
   // `}
 
 

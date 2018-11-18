@@ -8,7 +8,7 @@ import NewGame from 'components/NewGame';
 import RulesInfo from 'components/RulesInfo';
 import GameResultBanner from 'components/GameResultBanner';
 
-import { Grid, Header, Sidebar, Footer } from './styled';
+import { Grid, Header, Sidebar } from './styled';
 
 class App extends Component {
 
@@ -207,8 +207,6 @@ class App extends Component {
           <Sidebar>
             <RulesInfo maxRounds={maxRounds} />
           </Sidebar>
-
-          <Footer />
 
           <GameResultBanner
             userWon={userWon}

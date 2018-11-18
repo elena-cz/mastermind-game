@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { H2, H3, H4, P, Small, Semibold, Ul, Li } from 'sharedStyle/typography';
+import { H2, H3, H4, P, Small, Semibold, A, Ul, Li } from 'sharedStyle/typography';
 import {
-  Container,
-  RulesButtonContainer,
-  RulesHeading,
+  Zippy,
+  ZippyButtonContainer,
+  ZippyHeading,
   ExpandIcon,
-  RulesTextContainer,
+  ZippyTextContainer,
   Table,
   Th,
   Td,
@@ -25,6 +25,7 @@ class RulesInfo extends Component {
     super(props);
     this.state = {
       isRulesExpanded: true,
+      isAboutExpanded: true,
     };
   }
 
@@ -33,33 +34,38 @@ class RulesInfo extends Component {
     this.setState({ isRulesExpanded: !isRulesExpanded });
   }
 
+  toggleAboutDisplay = () => {
+    const { isAboutExpanded } = this.state;
+    this.setState({ isAboutExpanded: !isAboutExpanded });
+  }
+
   render() {
     const { maxRounds } = this.props;
-    const { isRulesExpanded } = this.state;
+    const { isRulesExpanded, isAboutExpanded } = this.state;
 
     return (
-      <Container>
+      <div>
 
-        <div>
+        <Zippy>
 
           <H2>
-            <RulesButtonContainer
-              isRulesExpanded={isRulesExpanded}
+            <ZippyButtonContainer
+              isExpanded={isRulesExpanded}
               onClick={() => this.toggleRulesDisplay()}
             >
 
-              <ExpandIcon isRulesExpanded={isRulesExpanded} />
+              <ExpandIcon isExpanded={isRulesExpanded} />
 
-              <RulesHeading>
+              <ZippyHeading>
                 Rules
-              </RulesHeading>
+              </ZippyHeading>
 
-            </RulesButtonContainer>
+            </ZippyButtonContainer>
           </H2>
 
-          <RulesTextContainer
+          <ZippyTextContainer
             hidden={!isRulesExpanded}
-            isRulesExpanded={isRulesExpanded}
+            isExpanded={isRulesExpanded}
           >
 
             <P><Semibold>You have {maxRounds} rounds to guess the secret code</Semibold></P>
@@ -67,7 +73,7 @@ class RulesInfo extends Component {
             <H3>1. Guess</H3>
 
             <P>
-              Choose a color for each peg in the current round &nbsp;
+              Choose a color for each large peg in the current round &nbsp;
               <Red>&#11044;</Red>
               <Orange>&#11044;</Orange>
               <Yellow>&#11044;</Yellow>
@@ -82,9 +88,10 @@ class RulesInfo extends Component {
 
             <Ul>
               <Li>&#9679; = correct color & correct position</Li>
-              <Li>&#9675; = correct color, but not the correct position</Li>
-              <Li><Semibold>The order of the key pegs is random</Semibold></Li>
+              <Li>&#9675; = correct color, but wrong position</Li>
             </Ul>
+
+            <P><Semibold>The order of the key pegs is random</Semibold></P>
 
             <H4>Example</H4>
 
@@ -92,7 +99,7 @@ class RulesInfo extends Component {
               <Li>
                 <Table>
                   <tr>
-                    <Td></Td>
+                    <Td />
                     <Td><Small>1</Small></Td>
                     <Td><Small>2</Small></Td>
                     <Td><Small>3</Small></Td>
@@ -117,7 +124,7 @@ class RulesInfo extends Component {
                     <Td>&#9679;</Td>
                     <Td>&#9675;</Td>
                     <Td>&#9675;</Td>
-                    <Td></Td>
+                    <Td />
                   </tr>
 
                 </Table>
@@ -130,12 +137,45 @@ class RulesInfo extends Component {
             </Ul>
 
             <H3>3. Guess again</H3>
-              <P>Keep guessing until you get the right code, or run out of rounds.</P>
+            <P>Keep guessing until you get the right code, or run out of rounds</P>
 
-          </RulesTextContainer>
-         </div>
+          </ZippyTextContainer>
+        </Zippy>
 
-      </Container>
+        <Zippy>
+
+          <H2>
+            <ZippyButtonContainer
+              isExpanded={isAboutExpanded}
+              onClick={() => this.toggleAboutDisplay()}
+            >
+
+              <ExpandIcon isExpanded={isAboutExpanded} />
+
+              <ZippyHeading>
+                About
+              </ZippyHeading>
+
+            </ZippyButtonContainer>
+          </H2>
+
+          <ZippyTextContainer
+            hidden={!isAboutExpanded}
+            isExpanded={isAboutExpanded}
+          >
+
+            <P>Project by Elena Czubiak</P>
+            <P>
+              <A href="https://github.com/elena-cz/mastermind-game" target="_blank" rel="noopener noreferrer">
+                View code on Github
+              </A>
+            </P>
+
+          </ZippyTextContainer>
+
+        </Zippy>
+
+      </div>
     );
   }
 

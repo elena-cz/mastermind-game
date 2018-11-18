@@ -43,6 +43,19 @@ const Semibold = styled.span`
   font-weight: 400;
 `;
 
+const A = styled.a`
+  color: ${props => props.theme.colors.blue};
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: ${props => props.theme.colors.purple};
+  }
+`;
+
 const Ul = styled.ul`
   margin-top: 0.25em;
   margin-bottom: 1em;
@@ -56,4 +69,4 @@ const Li = styled.li`
 `;
 
 
-export { H1, H2, H3, H4, P, Small, Semibold, Ul, Li };
+export { H1, H2, H3, H4, P, Small, Semibold, A, Ul, Li };
