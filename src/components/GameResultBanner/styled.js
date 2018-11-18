@@ -71,27 +71,25 @@ const Banner = styled(H2)`
   visibility: ${props => props.showBanner ? 'visible' : 'hidden'};
   position: fixed;
   bottom: 0;
-  left: ${0.5 * 0.7 * 80}vw;
+  left: calc(${props => (props.theme.grid.largeDesktop.percent / 100 * props.theme.grid.largeDesktop.vw * 0.5)}vw - 10rem);
   display: block;
   z-index: 100;
+  width: 20rem;
   box-sizing: border-box;
   padding: ${props => props.theme.spacers.sm} ${props => props.theme.spacers.lg};
   margin: ${props => props.theme.spacers.sm};
   background-color: ${props => props.theme.colors.white};
   border: 1px solid ${props => props.userWon ? props.theme.colors.primary : props.theme.colors.red};
   border-radius: 0.5em;
+  text-align: center;
   color: ${props => props.userWon ? props.theme.colors.primary : props.theme.colors.red};
   ${props => props.showBanner ? animation : ''}
 
   ${media.smallDesktop`
-    left: ${0.5 * 0.8 * 95}vw;
-  `}
-  ${media.tablet`
-    left: ${0.5 * 95}vw;
-    padding: ${props => props.theme.spacers.sm} ${props => props.theme.spacers.md};
+    left: calc(${props => props.theme.grid.smallDesktop.vw * 0.5}vw - 10rem);
   `}
   ${media.phone`
-    left: ${0.5 * 100}vw;
+    left: calc(${props => props.theme.grid.phone.vw * 0.5}vw - 10rem);
     padding: ${props => props.theme.spacers.sm} ${props => props.theme.spacers.md};
   `}
 `;

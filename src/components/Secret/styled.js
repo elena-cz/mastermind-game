@@ -10,17 +10,17 @@ const SecretContainer = styled(Container)`
   position: fixed;
   z-index: 200;
   bottom: 0;
-  width: ${0.7 * 80}vw;
+  width: ${props => props.theme.grid.largeDesktop.percent / 100 * props.theme.grid.largeDesktop.vw}vw;
   box-sizing: border-box;
   background-color: ${props => props.theme.colors.white};
   border: 1px solid ${props => props.theme.colors.mediumGray};
   box-shadow: ${props => props.theme.boxShadow};
 
   ${media.smallDesktop`
-    width: ${95}vw;
+    width: ${props => props.theme.grid.smallDesktop.vw}vw;
   `}
   ${media.phone`
-    width: ${100}vw;
+    width: ${props => props.theme.grid.phone.vw}vw;
   `}
 `;
 
