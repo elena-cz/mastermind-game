@@ -37,7 +37,7 @@ const Container = styled.div`
 
 const RoundNum = styled.div`
   grid-area: round;
-  color: ${props => props.theme.colors.mediumGray};
+  color: ${props => props.theme.colors.darkGray};
 `;
 // const RoundNum = styled.p`
 //   min-width: 1.2em;

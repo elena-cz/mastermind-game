@@ -63,11 +63,11 @@ class App extends Component {
     phoneMaxWidth.addListener(updatePegWidth);
     smallPhoneMaxWidth.addListener(updatePegWidth);
 
-    this.newGame(6);
-    setTimeout(() => {
-      // this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue']);
-      this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue', 'purple']);
-    }, 100);
+    this.newGame(5);
+    // setTimeout(() => {
+    //   // this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue']);
+    //   this.handleNewGuess(['red', 'orange', 'yellow', 'green', 'blue', 'purple']);
+    // }, 100);
   }
 
 

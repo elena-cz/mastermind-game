@@ -1,19 +1,6 @@
 import { createGlobalStyle } from 'styled-components/macro';
-import media from 'sharedStyle/utils/media';
-import theme from 'sharedStyle/theme';
-
-const { grid: { largeDesktop, smallDesktop, phone } } = theme;
 
 const globalStyle = createGlobalStyle`
-  :root {
-    --pegWidth: calc((${largeDesktop.vw}vw * ${largeDesktop.percent}%) / 18);
-    ${media.smallDesktop`
-      --pegWidth: calc((${largeDesktop.vw}vw * ${smallDesktop.percent}%) / 18);
-    `}
-    ${media.phone`
-      --pegWidth: calc((${largeDesktop.vw}vw * ${phone.percent}%) / 18);
-    `}
-  }
 
   html { 
     font-size: calc(0.9em + 0.08vw); 

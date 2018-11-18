@@ -98,35 +98,36 @@ class RulesInfo extends Component {
             <Ul>
               <Li>
                 <Table>
-                  <tr>
-                    <Td />
-                    <Td><Small>1</Small></Td>
-                    <Td><Small>2</Small></Td>
-                    <Td><Small>3</Small></Td>
-                    <Td><Small>4</Small></Td>
-                  </tr>
-                  <tr>
-                    <Th>Secret Code</Th>
-                    <Td><Blue>&#11044;</Blue></Td>
-                    <Td><Blue>&#11044;</Blue></Td>
-                    <Td><Green>&#11044;</Green></Td>
-                    <Td><Green>&#11044;</Green></Td>
-                  </tr>
-                  <tr>
-                    <Th>Guess Pegs</Th>
-                    <Td><Blue>&#11044;</Blue></Td>
-                    <Td><Green>&#11044;</Green></Td>
-                    <Td><Blue>&#11044;</Blue></Td>
-                    <Td><Blue>&#11044;</Blue></Td>
-                  </tr>
-                  <tr>
-                    <Th>Key Pegs*</Th>
-                    <Td>&#9679;</Td>
-                    <Td>&#9675;</Td>
-                    <Td>&#9675;</Td>
-                    <Td />
-                  </tr>
-
+                  <tbody>
+                    <tr>
+                      <Td />
+                      <Td><Small>1</Small></Td>
+                      <Td><Small>2</Small></Td>
+                      <Td><Small>3</Small></Td>
+                      <Td><Small>4</Small></Td>
+                    </tr>
+                    <tr>
+                      <Th>Secret Code</Th>
+                      <Td><Blue>&#11044;</Blue></Td>
+                      <Td><Blue>&#11044;</Blue></Td>
+                      <Td><Green>&#11044;</Green></Td>
+                      <Td><Green>&#11044;</Green></Td>
+                    </tr>
+                    <tr>
+                      <Th>Guess Pegs</Th>
+                      <Td><Blue>&#11044;</Blue></Td>
+                      <Td><Green>&#11044;</Green></Td>
+                      <Td><Blue>&#11044;</Blue></Td>
+                      <Td><Blue>&#11044;</Blue></Td>
+                    </tr>
+                    <tr>
+                      <Th>Key Pegs*</Th>
+                      <Td>&#9679;</Td>
+                      <Td>&#9675;</Td>
+                      <Td>&#9675;</Td>
+                      <Td />
+                    </tr>
+                  </tbody>
                 </Table>
 
                 <Small>* Will be in random order</Small>
