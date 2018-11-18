@@ -94,6 +94,7 @@ const RevealTooltip = styled.div.attrs({
   id: 'reveal-icon-tooltip',
 })`
   display: none;
+  position: relative;
   padding: ${props => props.theme.spacers.xs};
   background-color: ${props => props.theme.colors.white};
   color: ${props => props.theme.colors.black};
@@ -104,6 +105,10 @@ const RevealTooltip = styled.div.attrs({
   ${RevealContainer}:hover & {
     display: block;
   }
+
+  ${media.phone`
+    width: 7em;
+  `}
 `;
 
 const SecretPegs = styled(GuessPegs)``;

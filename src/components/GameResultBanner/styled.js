@@ -66,23 +66,14 @@ const animation = css`
     ${flyDown} 1.5s 3.5s;
 `;
 
-
-const Banner = styled(H2)`
+const BannerContainer = styled.div`
   visibility: ${props => props.showBanner ? 'visible' : 'hidden'};
+  display: flex;
+  justify-content: center;
   position: fixed;
   bottom: 0;
-  left: calc(${props => (props.theme.grid.largeDesktop.percent / 100 * props.theme.grid.largeDesktop.vw * 0.5)}vw - 10rem);
-  display: block;
+  width: ${props => props.theme.grid.largeDesktop.percent / 100 * props.theme.grid.largeDesktop.vw}vw;
   z-index: 100;
-  width: 20rem;
-  box-sizing: border-box;
-  padding: ${props => props.theme.spacers.sm} ${props => props.theme.spacers.lg};
-  margin: ${props => props.theme.spacers.sm};
-  background-color: ${props => props.theme.colors.white};
-  border: 1px solid ${props => props.userWon ? props.theme.colors.primary : props.theme.colors.red};
-  border-radius: 0.5em;
-  text-align: center;
-  color: ${props => props.userWon ? props.theme.colors.primary : props.theme.colors.red};
   ${props => props.showBanner ? animation : ''}
 
   ${media.smallDesktop`
@@ -94,6 +85,23 @@ const Banner = styled(H2)`
   `}
 `;
 
+const Banner = styled(H2)`
+  display: block;
+  box-sizing: border-box;
+  padding: ${props => props.theme.spacers.sm} ${props => props.theme.spacers.lg};
+  margin: ${props => props.theme.spacers.sm};
+  background-color: ${props => props.theme.colors.white};
+  border: 1px solid ${props => props.userWon ? props.theme.colors.primary : props.theme.colors.red};
+  border-radius: 0.5em;
+  text-align: center;
+  color: ${props => props.userWon ? props.theme.colors.primary : props.theme.colors.red};
+
+  ${media.phone`
+    padding: ${props => props.theme.spacers.sm} ${props => props.theme.spacers.md};
+  `}
+`;
+
 export {
+  BannerContainer,
   Banner,
 };
