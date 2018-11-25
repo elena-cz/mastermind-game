@@ -25,6 +25,7 @@ const Peg = styled.button`
   min-width: ${props => props.color ? props.pegWidth : Math.floor(props.pegWidth / 2)}px;
   border-radius: 50%;
   border: none;
+  z-index: ${props => props.colorPickerVisible ? 200 : 0};
 `;
 
 export { Container, PegContainer, Peg };

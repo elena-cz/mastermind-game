@@ -10,6 +10,7 @@ function CodePeg(props) {
     disabled,
     index,
     indexOfVisibleColorPicker,
+    handlePegClick,
     showColorPicker,
     hideColorPicker,
     updatePegColor,
@@ -35,9 +36,10 @@ function CodePeg(props) {
       >
         <Peg
           color={color}
+          colorPickerVisible={shouldShowColorPicker}
           onMouseEnter={() => showColorPicker(index)}
           onFocus={() => showColorPicker(index)}
-          onClick={() => showColorPicker(index)}
+          onClick={() => handlePegClick(color, index)}
           disabled={disabled}
           pegWidth={pegWidth}
         />
@@ -52,6 +54,7 @@ CodePeg.propTypes = {
   disabled: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired,
   indexOfVisibleColorPicker: PropTypes.number,
+  handlePegClick: PropTypes.func.isRequired,
   showColorPicker: PropTypes.func.isRequired,
   hideColorPicker: PropTypes.func.isRequired,
   updatePegColor: PropTypes.func.isRequired,

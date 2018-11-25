@@ -15,11 +15,16 @@ class Round extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { secretPegs, guessPegs, isCurrentRound } = this.props;
+    const { secretPegs } = this.props;
     if (secretPegs !== prevProps.secretPegs) {
-      const guessColors = new Array(guessPegs.length).fill('');
-      this.setState({ guessColors });
+      this.resetGuessColors();
     }
+  }
+
+  resetGuessColors = () => {
+    const { guessPegs } = this.props;
+    const guessColors = new Array(guessPegs.length).fill('');
+    this.setState({ guessColors });
   }
 
   showColorPicker = (indexOfPeg) => {
@@ -30,18 +35,25 @@ class Round extends Component {
     this.setState({ indexOfVisibleColorPicker: null });
   }
 
-  updatePegColor = (color, index) => {
+  updatePegColor = (color, indexOfPeg) => {
     this.setState((state) => {
       const guessColors = [...state.guessColors];
-      guessColors[index] = color;
+      guessColors[indexOfPeg] = color;
       return { guessColors };
     });
+  }
+
+  handlePegClick = (color, indexOfPeg) => {
+    if (color) {
+      this.updatePegColor('', indexOfPeg);
+    }
+    this.showColorPicker(indexOfPeg);
   }
 
   render() {
     const { id, guessPegs, keyPegs, isCurrentRound, colors, handleNewGuess, pegWidth } = this.props;
     const { guessColors, indexOfVisibleColorPicker } = this.state;
-    const { showColorPicker, hideColorPicker, updatePegColor } = this;
+    const { handlePegClick, showColorPicker, hideColorPicker, updatePegColor } = this;
 
     return (
       <Container pegWidth={pegWidth}>
@@ -53,6 +65,7 @@ class Round extends Component {
               disabled={!isCurrentRound}
               index={index}
               indexOfVisibleColorPicker={indexOfVisibleColorPicker}
+              handlePegClick={handlePegClick}
               showColorPicker={showColorPicker}
               hideColorPicker={hideColorPicker}
               updatePegColor={updatePegColor}
