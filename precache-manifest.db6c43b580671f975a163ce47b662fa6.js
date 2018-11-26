@@ -12,15 +12,15 @@ self.__precacheManifest = [
     "url": "/mastermind-game/static/js/runtime~main.2e773b1d.js"
   },
   {
-    "revision": "514b6461afdf35f8a6a9",
-    "url": "/mastermind-game/static/js/main.514b6461.chunk.js"
+    "revision": "5d67ad97c3b3dae760bc",
+    "url": "/mastermind-game/static/js/main.5d67ad97.chunk.js"
   },
   {
     "revision": "a0adf1bcaf05bbf184a8",
     "url": "/mastermind-game/static/js/1.a0adf1bc.chunk.js"
   },
   {
-    "revision": "73ffe692ee6c23f165448686accc1c5f",
+    "revision": "c4bf61ae9f73316791469195d81a4ada",
     "url": "/mastermind-game/index.html"
   }
 ];
