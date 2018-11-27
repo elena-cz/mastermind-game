@@ -1,25 +1,7 @@
 import styled from 'styled-components/macro';
+import media from 'sharedStyle/utils/media';
 
 
-// const pegRadius = 24;
-// const pathRadius = 1.75 * pegRadius;
-// const strokeWidth = 1.2 * pegRadius;
-// const viewBoxWidth = 2 * pathRadius + strokeWidth;
-// const viewBoxHeight = pathRadius + (strokeWidth / 2);
-// const angleInDeg = 20;
-// const convertToRadians = angle => angle * (Math.PI / 180);
-// const movePathXDistance = pathRadius - (Math.sin(convertToRadians(180 - 90 - angleInDeg)) * pathRadius);
-// const movePathYDistance = Math.sin(convertToRadians(angleInDeg)) * pathRadius;
-// const pathStartX = 0 + (strokeWidth / 2) + movePathXDistance;
-// const pathStartY = viewBoxHeight - movePathYDistance;
-// const pathEndX = 2 * pathRadius + (strokeWidth / 2) - movePathXDistance;
-// const pathEndY = pathStartY;
-
-// const viewBox = `0 0 ${viewBoxWidth} ${viewBoxHeight}`;
-// const path = `M ${pathStartX} ${pathStartY} A ${pathRadius} ${pathRadius} 0 0 1 ${pathEndX} ${pathEndY}`;
-
-
-  // visibility: ${props => props.isVisible ? 'visible' : 'hidden'};
 const Container = styled.div`
   display: ${props => props.isVisible ? 'block' : 'none'};
   position: absolute;
@@ -27,6 +9,10 @@ const Container = styled.div`
   height: ${props => props.viewBoxHeight}px;
   width: ${props => props.viewBoxWidth}px;
   z-index: 100;
+
+  ${media.phone`
+    bottom: ${props => props.pegRadius * 1.75}px;
+  `}
 `;
   // opacity: ${props => props.isVisible ? 1 : 0.8};
   // transition: visibility 0s 0s, opacity .2s ease-in-out;

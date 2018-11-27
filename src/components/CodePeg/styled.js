@@ -1,6 +1,4 @@
 import styled from 'styled-components/macro';
-import media from 'sharedStyle/utils/media';
-
 
 const Container = styled.div`
   position: relative;
