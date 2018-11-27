@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/mastermind-game/precache-manifest.db6c43b580671f975a163ce47b662fa6.js"
+  "/mastermind-game/precache-manifest.78ad97afe2f380f7aeab5544e1f3dc92.js"
 );
 
 workbox.clientsClaim();
