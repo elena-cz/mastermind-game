@@ -1,6 +1,6 @@
 {
-  "main.js": "/mastermind-game/static/js/main.fc097b0b.chunk.js",
-  "main.js.map": "/mastermind-game/static/js/main.fc097b0b.chunk.js.map",
+  "main.js": "/mastermind-game/static/js/main.e77e4c46.chunk.js",
+  "main.js.map": "/mastermind-game/static/js/main.e77e4c46.chunk.js.map",
   "static/js/1.a0adf1bc.chunk.js": "/mastermind-game/static/js/1.a0adf1bc.chunk.js",
   "static/js/1.a0adf1bc.chunk.js.map": "/mastermind-game/static/js/1.a0adf1bc.chunk.js.map",
   "runtime~main.js": "/mastermind-game/static/js/runtime~main.2e773b1d.js",
@@ -8,6 +8,6 @@
   "static/media/visibility-icon.svg": "/mastermind-game/static/media/visibility-icon.61689cf2.svg",
   "static/media/expand-less-icon.svg": "/mastermind-game/static/media/expand-less-icon.b7400197.svg",
   "index.html": "/mastermind-game/index.html",
-  "precache-manifest.c299e9998635d952edc00c8218875e20.js": "/mastermind-game/precache-manifest.c299e9998635d952edc00c8218875e20.js",
+  "precache-manifest.9a20d3d7444540a273cafc3c68b2995c.js": "/mastermind-game/precache-manifest.9a20d3d7444540a273cafc3c68b2995c.js",
   "service-worker.js": "/mastermind-game/service-worker.js"
 }
