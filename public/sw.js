@@ -8,13 +8,14 @@ self.addEventListener('install', event => {
         '/mastermind-game/',
         '/mastermind-game/index.html'
       ])
-          .then(() => self.skipWaiting());
+        .then(() => self.skipWaiting());
     })
-  );
+  );  
 });
 
 self.addEventListener('fetch', function(event) {
  console.log(event.request.url);
+});
 
 self.addEventListener('fetch', event => {
   event.respondWith(
