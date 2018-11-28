@@ -12,7 +12,7 @@ const globalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     overflow-anchor: none;
-    background-color: yellow;
+    background-color: white;
     font-family: ${props => props.theme.typography.fontFamily};
   }
 
