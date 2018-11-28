@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/mastermind-game/static/js/1.a0adf1bc.chunk.js"
   },
   {
-    "revision": "bd5c32678d1e7bb69488dd3406da8ea6",
+    "revision": "f60631ecb336de1f9fc23d223f79e831",
     "url": "/mastermind-game/index.html"
   }
 ];
